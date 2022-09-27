@@ -20,6 +20,7 @@ export interface Treatment {
     __v:             number;
   id: string;
   slug: string;
+  content: string;
 }
 export interface Image {
     _id:             string;

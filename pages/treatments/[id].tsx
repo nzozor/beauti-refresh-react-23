@@ -2,12 +2,11 @@ import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { Treatment } from "../../types";
 import Image from "next/image";
 import imageLoader from "../../imageLoader";
-import { json } from "node:stream/consumers";
 
 const TreatmentPage: NextPage<{ treatment: any }> = ({ treatment }) => {
   return (
     <div>
-      <h1>{JSON.stringify(treatment.title)}</h1>
+      <h1>{treatment.title}</h1>
       <Image
         src={
           "https://cms.beautiskinclinic.com" +
@@ -19,23 +18,24 @@ const TreatmentPage: NextPage<{ treatment: any }> = ({ treatment }) => {
         loader={imageLoader}
         unoptimized
       />
+      <p> {treatment.content}</p>
     </div>
   );
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const response = await fetch("https://cms.beautiskinclinic.com/treatments");
-  const data = await response.json();
+  const response = await fetch("http://cms.beautiskinclinic.com/treatments");
+  const treatments: Treatment[] = await response.json();
 
-  const products = data;
-
-  const paths = products.map((product: any) => {
-    return {
-      params: {
-        id: product.slug.toString(),
-      },
-    };
-  });
+  const paths = treatments
+    .filter((treatment) => treatment.content)
+    .map((product: any) => {
+      return {
+        params: {
+          id: product.slug.toString(),
+        },
+      };
+    });
 
   return {
     paths,
@@ -46,9 +46,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context: any) => {
   const id = context.params?.id;
   const response = await fetch(
-    `https://cms.beautiskinclinic.com/treatments?slug=${id}`
+    `http://cms.beautiskinclinic.com/treatments?slug=${id}`
   );
-  const treatment: Treatment = await response.json();
+  const treatment: Treatment[] = await response.json();
 
   return {
     props: {
