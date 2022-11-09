@@ -1,9 +1,9 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import { Treatment } from "../../types";
+import { Treatment } from "../../types/treatment";
 import Image from "next/image";
 import imageLoader from "../../imageLoader";
 
-const TreatmentPage: NextPage<{ treatment: any }> = ({ treatment }) => {
+const TreatmentPage: NextPage<{ treatment: Treatment }> = ({ treatment }) => {
   return (
     <div>
       <h1>{treatment.title}</h1>

@@ -1,6 +1,6 @@
 import type { GetStaticProps, NextPage } from "next";
 import Link from "next/link";
-import { Treatment } from "../../types";
+import { Treatment } from "../../types/treatment";
 
 const Treatments: NextPage<{ treatments: Treatment[] }> = ({ treatments }) => {
   return (

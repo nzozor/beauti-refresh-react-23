@@ -2,10 +2,16 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+
   images: {
-    domains: ["cms.beautiskinclinic.com"],
-    loader: "custom",
-    path: "/",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cms.beautiskinclinic.com",
+        port: "",
+        // pathname: "/account123/**",
+      },
+    ],
   },
 };
 
