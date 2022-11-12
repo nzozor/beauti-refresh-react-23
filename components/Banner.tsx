@@ -2,14 +2,12 @@ import React from "react";
 
 import Image from "next/image";
 import { BannerInfo } from "../types/banner";
+import BookButton from "./BookButton";
 
 export interface Props {
   bannerInfo: BannerInfo;
 }
 const HeaderNav: React.FC<Props> = ({ bannerInfo }) => {
-  const treatWellLink =
-    "https://widget.treatwell.co.uk/place/beauti-skin-clinic/";
-
   const imgSrc = "https://cms.beautiskinclinic.com";
   return (
     <article>
@@ -19,14 +17,8 @@ const HeaderNav: React.FC<Props> = ({ bannerInfo }) => {
         <h2>{bannerInfo.title3}</h2>
         <h5>{bannerInfo.title4}</h5>
       </div>
-      <a
-        href={treatWellLink}
-        className="book-now"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <h2>Book now</h2>
-      </a>
+      <BookButton />
+
       {bannerInfo.asterisk}
 
       <div>

@@ -16,7 +16,7 @@ const HomePageSlider: React.FC = () => {
         pigmentation. We believe in delivering the most effective results while
         creating a warm, clean and friendly atmosphere for all our customers.
       </p>
-      <Link href="/treatments"> Treatments </Link>{" "}
+      <Link href="/treatments">View Treatments </Link>{" "}
     </section>
   );
 };

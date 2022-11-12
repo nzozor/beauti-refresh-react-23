@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
+import BookButton from "./BookButton";
 
 function HeaderNav() {
   return (
@@ -20,10 +21,20 @@ function HeaderNav() {
       <nav>
         <ul>
           <li>
+            <Link href="/"> Home </Link>{" "}
+          </li>
+          <li>
+            <Link href="/about-us"> About us </Link>{" "}
+          </li>
+          <li>
             <Link href="/treatments"> Treatments </Link>{" "}
+          </li>
+          <li>
+            <Link href="/contact"> Contact </Link>{" "}
           </li>
         </ul>
       </nav>
+      <BookButton />
     </header>
   );
 }

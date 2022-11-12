@@ -21,7 +21,10 @@ const Treatments: NextPage<{ treatments: Treatment[] }> = ({ treatments }) => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const response = await fetch("http://cms.beautiskinclinic.com/treatments");
+  const localhost = "http://localhost:1337/treatments";
+  const prod = "http://cms.beautiskinclinic.com/treatments";
+  // const response = await fetch(prod);
+  const response = await fetch(localhost);
 
   // Parse the JSON
   const treatments = await response.json();
