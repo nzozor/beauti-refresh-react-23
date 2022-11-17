@@ -7,7 +7,6 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "cms.beautiskinclinic.com",
-        port: "",
       },
     ],
   },

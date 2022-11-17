@@ -1,23 +1,27 @@
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
-import BookButton from "./BookButton";
+import BookButton from "../BookButton";
 
 function HeaderNav() {
   return (
     <header>
-      <h2>
+      <h1>
+        <span className="beauti-logo-heading">
+          Beauti Skin Clinic London | Oval | Brixton Road | Beauty Skin Clinic
+          London | Skin Treatment| Skin Clinic
+        </span>
         <Link href="/">
           <a>
             <Image
               src="/images/Logo.png"
-              alt="Beauti Logo"
+              alt="Beauti Skin Clinic Logo"
               width={300}
               height={100}
             />
           </a>
         </Link>
-      </h2>
+      </h1>
       <nav>
         <ul>
           <li>
