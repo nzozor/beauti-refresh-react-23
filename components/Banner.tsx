@@ -13,8 +13,8 @@ const HeaderNav: React.FC<Props> = ({ bannerInfo }) => {
     <article>
       <div className="slider-title">
         <h3>{bannerInfo.title1}</h3>
-        <h1>{bannerInfo.title2}</h1>
-        <h2>{bannerInfo.title3}</h2>
+        <h2>{bannerInfo.title2}</h2>
+        <h4>{bannerInfo.title3}</h4>
         <h5>{bannerInfo.title4}</h5>
       </div>
       <BookButton />
@@ -24,7 +24,7 @@ const HeaderNav: React.FC<Props> = ({ bannerInfo }) => {
       <div>
         <Image
           src={imgSrc + bannerInfo.image.formats.large.url}
-          alt={bannerInfo.image.alternativeText}
+          alt={bannerInfo.image.alternativeText || bannerInfo.title1}
           width={300}
           height={100}
         />

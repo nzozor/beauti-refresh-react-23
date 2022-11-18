@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import { BannerInfo } from '../types/banner';
-import Banner from './Banner';
+import { BannerInfo } from "../types/banner";
+import Banner from "./Banner";
 
 export interface Props {
   banners: BannerInfo[];

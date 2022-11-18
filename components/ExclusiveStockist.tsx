@@ -17,7 +17,7 @@ const ExclusiveStockist: React.FC = () => {
               <Image
                 className="js-lazy-image"
                 src="/images/Stockist_Alumier.jpg"
-                alt="Alumier Beauti Brixton Road"
+                alt="Alumier | Beauti Skin Clinic London | Oval | Brixton Road | Skin Treatment"
                 width={"100px"}
                 height={"100px"}
               />
@@ -30,7 +30,7 @@ const ExclusiveStockist: React.FC = () => {
               <Image
                 className="js-lazy-image"
                 src="/images/beauti_hayo.jpg"
-                alt="Hayou Beauti Brixton Road"
+                alt="Hayou | Beauti Skin Clinic London | Oval | Brixton Road | Skin Treatment"
                 width={"100px"}
                 height={"100px"}
               />
@@ -43,7 +43,7 @@ const ExclusiveStockist: React.FC = () => {
               <Image
                 className="js-lazy-image"
                 src="/images/Stockist_Skinade.jpg"
-                alt="Skinade Beauti Brixton Road"
+                alt="Skinade | Beauti Skin Clinic London | Oval | Brixton Road | Skin Treatment"
                 width={"100px"}
                 height={"100px"}
               />

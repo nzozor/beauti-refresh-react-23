@@ -84,7 +84,7 @@ const Treatments: NextPage<{
       .filter(
         (section: any) => section.parentSection?.id === sectionToDisplay?.id
       )
-      .map((section: any) => (
+      .map((section: any, index: number) => (
         <Accordion
           key={section.id}
           expanded={expanded.includes(section.id)}
@@ -96,7 +96,7 @@ const Treatments: NextPage<{
             id="panel1bh-header"
           >
             <Typography sx={{ width: "33%", flexShrink: 0 }}>
-              {section.sectionName}
+              <h3>{section.sectionName}</h3>
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
@@ -109,6 +109,7 @@ const Treatments: NextPage<{
 
   return (
     <div>
+      <h1>Treatments</h1>
       <div>
         {sections
           .filter(
@@ -127,7 +128,7 @@ const Treatments: NextPage<{
                 id="panel1bh-header"
               >
                 <Typography sx={{ width: "33%", flexShrink: 0 }}>
-                  {section.sectionName}
+                  <h2>{section.sectionName}</h2>
                 </Typography>
               </AccordionSummary>
               <AccordionDetails>

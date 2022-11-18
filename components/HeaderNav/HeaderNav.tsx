@@ -6,22 +6,19 @@ import BookButton from "../BookButton";
 function HeaderNav() {
   return (
     <header>
-      <h1>
-        <span className="beauti-logo-heading">
-          Beauti Skin Clinic London | Oval | Brixton Road | Beauty Skin Clinic
-          London | Skin Treatment| Skin Clinic
-        </span>
-        <Link href="/">
-          <a>
-            <Image
-              src="/images/Logo.png"
-              alt="Beauti Skin Clinic Logo"
-              width={300}
-              height={100}
-            />
-          </a>
-        </Link>
-      </h1>
+      <div className="absolute inset-x-full">
+        Beauti Skin Clinic London | Oval | Brixton Road | Skin Treatment
+      </div>
+      <Link href="/">
+        <a>
+          <Image
+            src="/images/Logo.png"
+            alt="Beauti Skin Clinic Logo Beauti Skin Clinic London | Oval | Brixton Road | Skin Treatment"
+            width={300}
+            height={100}
+          />
+        </a>
+      </Link>
       <nav>
         <ul>
           <li>
