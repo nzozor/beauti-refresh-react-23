@@ -2,7 +2,6 @@ import React from "react";
 import type { GetStaticProps, NextPage } from "next";
 import Link from "next/link";
 import { Treatment } from "../../types/treatment";
-
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -49,24 +48,30 @@ const Treatments: NextPage<{
           price.section?.id === parentId || price.treatment?.id === parentId
       )
       .map((price: any) => (
-        <li key={price.id}>
+        <div key={price.id}>
           <h2>Prices Title: {price.priceTitle}</h2>
           <table>
-            <tr>
-              {!price.hideColumnTitles &&
-                price.colTitles.map((colTitle: any) => (
-                  <th key={colTitle.id}>{!colTitle.hide && colTitle.title}</th>
-                ))}
-            </tr>
-            {price.Rows.map((row: any) => (
-              <tr key={row.id}>
-                {row.singleRow.map((col: any) => (
-                  <td key={col.id}>{col.value}</td>
-                ))}
+            <thead>
+              <tr>
+                {!price.hideColumnTitles &&
+                  price.colTitles.map((colTitle: any) => (
+                    <th key={colTitle.id}>
+                      {!colTitle.hide && colTitle.title}
+                    </th>
+                  ))}
               </tr>
-            ))}
+            </thead>
+            <tbody>
+              {price.Rows.map((row: any) => (
+                <tr key={row.id}>
+                  {row.singleRow.map((col: any) => (
+                    <td key={col.id}>{col.value}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
           </table>
-        </li>
+        </div>
       ));
   };
   const displayTreatment = (sectionId: string) => {
@@ -75,7 +80,7 @@ const Treatments: NextPage<{
       .map((treatment) => (
         <div key={treatment.id}>
           <div>Treatment:{treatment.title}</div>
-          <ul>{displayPrices(treatment.id)}</ul>
+          <div>{displayPrices(treatment.id)}</div>
         </div>
       ));
   };
@@ -96,7 +101,7 @@ const Treatments: NextPage<{
             id="panel1bh-header"
           >
             <Typography sx={{ width: "33%", flexShrink: 0 }}>
-              <h3>{section.sectionName}</h3>
+              {section.sectionName}
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
@@ -128,7 +133,7 @@ const Treatments: NextPage<{
                 id="panel1bh-header"
               >
                 <Typography sx={{ width: "33%", flexShrink: 0 }}>
-                  <h2>{section.sectionName}</h2>
+                  {section.sectionName}
                 </Typography>
               </AccordionSummary>
               <AccordionDetails>
@@ -145,17 +150,23 @@ const Treatments: NextPage<{
 export const getStaticProps: GetStaticProps = async (context) => {
   const localhost = "http://localhost:1337/treatments";
   const prod = "http://cms.beautiskinclinic.com/treatments";
-  const response = await fetch(localhost);
+  const response = await fetch(localhost).catch((error) => {
+    console.error("There was an error!", error);
+  });
 
   const sectionsUrls = "http://localhost:1337/sections";
-  const sectionResponse = await fetch(sectionsUrls);
+  const sectionResponse = await fetch(sectionsUrls).catch((error) => {
+    console.error("There was an error!", error);
+  });
 
   const pricesUrl = "http://localhost:1337/prices";
-  const pricesResponse = await fetch(pricesUrl);
+  const pricesResponse = await fetch(pricesUrl).catch((error) => {
+    console.error("There was an error!", error);
+  });
   // Parse the JSON
-  const treatments = await response.json();
-  const sections = await sectionResponse.json();
-  const prices = await pricesResponse.json();
+  const treatments = (await response?.json()) || [];
+  const sections = (await sectionResponse?.json()) || [];
+  const prices = (await pricesResponse?.json()) || [];
   // Finally we return the result
   // inside props as allPokemons
   return {
