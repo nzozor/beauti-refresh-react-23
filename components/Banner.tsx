@@ -24,7 +24,11 @@ const HeaderNav: React.FC<Props> = ({ bannerInfo }) => {
       <div>
         <Image
           src={imgSrc + bannerInfo.image.formats.large.url}
-          alt={bannerInfo.image.alternativeText || bannerInfo.title1}
+          alt={
+            (bannerInfo.image.alternativeText &&
+              imgSrc + bannerInfo.image.alternativeText) ||
+            bannerInfo.title2
+          }
           width={300}
           height={100}
         />
