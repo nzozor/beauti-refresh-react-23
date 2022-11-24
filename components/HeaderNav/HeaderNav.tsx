@@ -6,7 +6,7 @@ import BookButton from "../BookButton";
 function HeaderNav() {
   return (
     <header>
-      <div className="text-lg font-medium">
+      <div className="text-lg font-medium underline decoration-sky-500/30 text-orange-200">
         Beauti Skin Clinic London | Oval | Brixton Road | Skin Treatment
       </div>
       <Link href="/">
