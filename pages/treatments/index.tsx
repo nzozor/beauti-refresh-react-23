@@ -150,6 +150,7 @@ const Treatments: NextPage<{
 export const getStaticProps: GetStaticProps = async (context) => {
   const localhost = "http://localhost:1337/treatments";
   const prod = "http://cms.beautiskinclinic.com/treatments";
+  console.log(process.env.CMS_BASE_URL);
   const response = await fetch(localhost).catch((error) => {
     console.error("There was an error!", error);
   });

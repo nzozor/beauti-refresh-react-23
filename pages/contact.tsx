@@ -93,7 +93,6 @@ export const getStaticProps: GetStaticProps = async () => {
   const response = await fetch("http://cms.beautiskinclinic.com/about-us-page");
   // Parse the JSON
   const aboutUsCopy: AboutUsCopy = await response.json();
-  console.log(aboutUsCopy);
   const copy = aboutUsCopy.Content;
 
   return {

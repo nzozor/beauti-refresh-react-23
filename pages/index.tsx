@@ -15,18 +15,6 @@ const Home: NextPage<{ bannersInfo: BannerInfo[] }> = ({
 }: any) => {
   return (
     <div className={styles.container}>
-      <Head>
-        <title>
-          Beauti Skin Clinic | Advanced Skin Treatments in SW London
-        </title>
-        <meta
-          name="description"
-          content="Professional skin and waxing services only 5 mins walk from Oval Station.
-  Founded by Aesthetician Cinzia Campigotto who has over 20 years of experience."
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <main className={styles.main}>
         <HomePageSlider banners={bannersInfo} />
         <BeautiSummary />
@@ -45,7 +33,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   // Parse the JSON
   const bannersInfo = await response.json();
-  console.log(bannersInfo);
   const reviews = REVIEWS;
   // Finally we return the result
   // inside props as allPokemons
