@@ -9,6 +9,9 @@ import "@fontsource/roboto/700.css";
 import Head from "next/head";
 import { NextPage } from "next";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+
 const MyApp: NextPage<AppProps> = ({ Component, pageProps }: AppProps) => {
   return (
     <>
@@ -23,6 +26,17 @@ const MyApp: NextPage<AppProps> = ({ Component, pageProps }: AppProps) => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Swiper
+        spaceBetween={50}
+        slidesPerView={3}
+        onSlideChange={() => console.log("slide change")}
+        onSwiper={(swiper) => console.log(swiper)}
+      >
+        <SwiperSlide>Slide 1</SwiperSlide>
+        <SwiperSlide>Slide 2</SwiperSlide>
+        <SwiperSlide>Slide 3</SwiperSlide>
+        <SwiperSlide>Slide 4</SwiperSlide>
+      </Swiper>
       <HeaderNav />
       <Component {...pageProps} />
       <Footer />
