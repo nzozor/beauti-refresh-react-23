@@ -170,9 +170,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
     };
   });
   // Parse the JSON
-  const treatments = (await response?.json()) || [];
-  const sections = (await sectionResponse?.json()) || [];
-  const prices = (await pricesResponse?.json()) || [];
+  const treatments = (await (response as Response)?.json()) || [];
+  const sections = (await (sectionResponse as Response)?.json()) || [];
+  const prices = (await (pricesResponse as Response)?.json()) || [];
   // Finally we return the result
   // inside props as allPokemons
   return {

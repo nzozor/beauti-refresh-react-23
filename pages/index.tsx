@@ -49,7 +49,7 @@ const getBanners = async () => {
   );
   const serverDateResponse = await fetch(`${serverDateUrl}date`);
   let serverDate = (await serverDateResponse?.json()) || new Date();
-  let bannersInfo: BannerInfo[] = await BannersResponse?.json();
+  let bannersInfo: BannerInfo[] = await (BannersResponse as Response)?.json();
   const defaultBanner = () =>
     bannersInfo.filter((banner) => banner.isDefaultBanner === true);
   const filteredBanners = bannersInfo
