@@ -151,28 +151,27 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const host = process.env.CMS_BASE_URL as string;
   const response = await fetch(`${host}treatments`).catch((error) => {
     console.warn("There was an error!", error);
-    return {
-      notFound: true,
-    };
+    return [];
   });
 
   const sectionResponse = await fetch(`${host}sections`).catch((error) => {
     console.warn("There was an error!", error);
-    return {
-      notFound: true,
-    };
+    return [];
   });
 
   const pricesResponse = await fetch(`${host}prices`).catch((error) => {
     console.warn("There was an error!", error);
-    return {
-      notFound: true,
-    };
+    return [];
   });
   // Parse the JSON
-  const treatments = (await (response as Response)?.json()) || [];
-  const sections = (await (sectionResponse as Response)?.json()) || [];
-  const prices = (await (pricesResponse as Response)?.json()) || [];
+  let treatments = await (response as Response)?.json();
+  treatments = Array.isArray(treatments) ? treatments : [];
+  let sections = await (sectionResponse as Response)?.json();
+  sections = Array.isArray(sections) ? sections : [];
+
+  let prices = await (pricesResponse as Response)?.json();
+  prices = Array.isArray(prices) ? prices : [];
+
   // Finally we return the result
   // inside props as allPokemons
   return {
