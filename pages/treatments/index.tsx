@@ -148,21 +148,26 @@ const Treatments: NextPage<{
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const localhost = "http://localhost:1337/treatments";
-  const prod = "http://cms.beautiskinclinic.com/treatments";
-  console.log(process.env.CMS_BASE_URL);
-  const response = await fetch(localhost).catch((error) => {
-    console.error("There was an error!", error);
+  const host = process.env.CMS_BASE_URL as string;
+  const response = await fetch(`${host}treatments`).catch((error) => {
+    console.warn("There was an error!", error);
+    return {
+      notFound: true,
+    };
   });
 
-  const sectionsUrls = "http://localhost:1337/sections";
-  const sectionResponse = await fetch(sectionsUrls).catch((error) => {
-    console.error("There was an error!", error);
+  const sectionResponse = await fetch(`${host}sections`).catch((error) => {
+    console.warn("There was an error!", error);
+    return {
+      notFound: true,
+    };
   });
 
-  const pricesUrl = "http://localhost:1337/prices";
-  const pricesResponse = await fetch(pricesUrl).catch((error) => {
-    console.error("There was an error!", error);
+  const pricesResponse = await fetch(`${host}prices`).catch((error) => {
+    console.warn("There was an error!", error);
+    return {
+      notFound: true,
+    };
   });
   // Parse the JSON
   const treatments = (await response?.json()) || [];

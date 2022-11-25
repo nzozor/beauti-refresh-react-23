@@ -7,8 +7,9 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import Head from "next/head";
+import { NextPage } from "next";
 
-function MyApp({ Component, pageProps }: AppProps) {
+const MyApp: NextPage<AppProps> = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Head>
@@ -27,6 +28,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Footer />
     </>
   );
-}
+};
 
 export default MyApp;

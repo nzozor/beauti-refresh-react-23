@@ -27,18 +27,51 @@ const Home: NextPage<{ bannersInfo: BannerInfo[] }> = ({
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const response = await fetch(
-    "http://cms.beautiskinclinic.com/homepage-sliders"
-  );
-
-  // Parse the JSON
-  const bannersInfo = await response.json();
+  const bannersInfo = await getBanners();
   const reviews = REVIEWS;
-  // Finally we return the result
-  // inside props as allPokemons
+
   return {
     props: { bannersInfo, reviews },
   };
 };
 
+const getBanners = async () => {
+  const host = process.env.CMS_BASE_URL as string;
+  const serverDateUrl = process.env.DATE_API as string;
+
+  const BannersResponse = await fetch(`${host}homepage-sliders`).catch(
+    (error) => {
+      console.warn("There was an error!", error);
+      return {
+        notFound: true,
+      };
+    }
+  );
+  const serverDateResponse = await fetch(`${serverDateUrl}date`);
+  let serverDate = (await serverDateResponse?.json()) || new Date();
+  let bannersInfo: BannerInfo[] = await BannersResponse?.json();
+  const defaultBanner = () =>
+    bannersInfo.filter((banner) => banner.isDefaultBanner === true);
+  const filteredBanners = bannersInfo
+    .filter((banner) =>
+      serverDate
+        ? new Date(serverDate).getTime() -
+            new Date(banner.expirationDate).getTime() <=
+          0
+        : true
+    )
+    .filter((banner) =>
+      serverDate
+        ? new Date(serverDate).getTime() -
+            new Date(banner.publication).getTime() >=
+          0
+        : true
+    )
+    .sort(
+      (a: BannerInfo, b: BannerInfo) =>
+        new Date(b.publication).getTime() - new Date(a.publication).getTime()
+    )
+    .filter((banner) => !banner.hide);
+  return filteredBanners.length > 0 ? filteredBanners : defaultBanner();
+};
 export default Home;
