@@ -14,7 +14,7 @@ const Home: NextPage<{ bannersInfo: BannerInfo[] }> = ({
   reviews,
 }: any) => {
   return (
-    <div className={styles.container}>
+    <div>
       <main className={styles.main}>
         <HomePageSlider banners={bannersInfo} />
         <BeautiSummary />

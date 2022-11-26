@@ -23,7 +23,7 @@ const TreatmentPage: NextPage<{ treatment: Treatment }> = ({ treatment }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const response = await fetch(`https://cms.beautiskinclinic.com/treatments`);
+  const response = await fetch(`${host}treatments`);
   let treatments: Treatment[] = await response.json();
   treatments = Array.isArray(treatments) ? treatments : [];
 
@@ -45,9 +45,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (context: any) => {
   const id = context.params?.id;
-  const response = await fetch(
-    `https://cms.beautiskinclinic.com/treatments?slug=${id}`
-  );
+  const response = await fetch(`${host}treatments?slug=${id}`);
   let treatment: Treatment[] = await response.json();
   treatment = Array.isArray(treatment) ? treatment : [];
 
