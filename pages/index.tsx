@@ -38,15 +38,17 @@ export const getStaticProps: GetStaticProps = async (context) => {
 const getBanners = async () => {
   const host = process.env.CMS_BASE_URL as string;
   const serverDateUrl = process.env.DATE_API as string;
-
+  let hasError = false;
   const BannersResponse = await fetch(`${host}homepage-sliders`).catch(
     (error) => {
       console.warn("There was an error!", error);
+      hasError = true;
       return {
         notFound: true,
       };
     }
   );
+  if (hasError) return [];
   const serverDateResponse = await fetch(`${serverDateUrl}date`);
   let serverDate = (await serverDateResponse?.json()) || new Date();
   let bannersInfo: BannerInfo[] = await (BannersResponse as Response)?.json();

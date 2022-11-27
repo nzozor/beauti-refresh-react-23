@@ -6,7 +6,7 @@ const ExclusiveStockist: React.FC = () => {
     <section>
       <h3>Exclusive Stockist</h3>
       <h4>Medical grade skincare exclusively available at our clinic</h4>
-      <div data-test-id="test-example">
+      <div className="flex items-center flex-row space-x-4">
         <div>
           <a
             href="https://www.alumiermd.co.uk/"

@@ -30,7 +30,7 @@ const HomePageSlider: React.FC<Props> = ({ banners }) => {
         modules={[Pagination]}
       >
         {banners.map((banner: BannerInfo) => (
-          <SwiperSlide key={banner.id.toString()} className="w-screen">
+          <SwiperSlide key={banner.id.toString()} className="w-full">
             <Banner bannerInfo={banner} />
           </SwiperSlide>
         ))}

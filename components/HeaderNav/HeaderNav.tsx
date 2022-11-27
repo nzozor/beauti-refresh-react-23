@@ -2,24 +2,77 @@ import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 import BookButton from "../BookButton";
+import styled from "styled-components";
 
+const Title = styled.div`
+  font-size: 1.5em;
+  text-align: center;
+  color: palevioletred;
+  position: absolute;
+  right: 100vw;
+`;
+const LogoContainer = styled.div`
+  img {
+    width: 134px !important;
+    height: 31px !important;
+  }
+`;
+const Header = styled.header`
+  background-color: white;
+  padding: 18px 70px;
+  height: 82px;
+  display: flex;
+  border-bottom: 1px solid #c7cbd6;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+  align-items: center;
+`;
+
+const NavLink = styled.nav`
+  ul {
+    display: flex;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 13px;
+    color: #3e3d3c; // TO DO: to move
+    padding: 0;
+
+    @media (max-width: 1023px) {
+      display: none;
+    }
+
+    li {
+      margin: 0 30px;
+      list-style: none;
+
+      a {
+        text-decoration: none;
+        text-transform: uppercase;
+        color: inherit;
+        color: black;
+      }
+    }
+    display: flex;
+  }
+`;
 function HeaderNav() {
   return (
-    <header>
-      <div className="text-lg font-medium underline decoration-sky-500/30 text-orange-200">
-        Beauti Skin Clinic London | Oval | Brixton Road | Skin Treatment
-      </div>
+    <Header>
+      <Title>
+        Beauti Skin Clinic London | Oval | Brixton Road | Skin Treatment | SW9
+      </Title>
       <Link href="/">
-        <a>
+        <LogoContainer>
           <Image
             src="/images/Logo.png"
             alt="Beauti Skin Clinic Logo Beauti Skin Clinic London | Oval | Brixton Road | Skin Treatment"
             width={300}
             height={100}
           />
-        </a>
+        </LogoContainer>
       </Link>
-      <nav>
+      <NavLink>
         <ul>
           <li>
             <Link href="/"> Home </Link>{" "}
@@ -34,9 +87,9 @@ function HeaderNav() {
             <Link href="/contact"> Contact </Link>{" "}
           </li>
         </ul>
-      </nav>
+      </NavLink>
       <BookButton />
-    </header>
+    </Header>
   );
 }
 

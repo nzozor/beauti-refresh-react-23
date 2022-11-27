@@ -36,7 +36,7 @@ function HeaderNav() {
   return (
     <section>
       <h3>Find Us</h3>
-      <div>
+      <div className="">
         <div className="sidebar">
           Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
         </div>
