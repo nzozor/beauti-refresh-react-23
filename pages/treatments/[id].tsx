@@ -10,9 +10,9 @@ const TreatmentPage: NextPage<{ treatment: Treatment }> = ({ treatment }) => {
     <div>
       <h1>{treatment.title}</h1>
       <Image
-        src={host + treatment.images[0]?.formats.large.url}
-        alt={treatment.images[0].alternativeText}
-        width="200px"
+        src="/images/treatments-default.jpeg"
+        alt=""
+        width="600px"
         height="200px"
         loader={imageLoader}
         unoptimized

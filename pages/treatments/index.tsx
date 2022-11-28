@@ -81,6 +81,7 @@ const Treatments: NextPage<{
         <div key={treatment.id}>
           <div>Treatment:{treatment.title}</div>
           <div>{displayPrices(treatment.id)}</div>
+          <Link href={`/treatments/${treatment.slug}`}>Read more</Link>
         </div>
       ));
   };
