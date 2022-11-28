@@ -1,8 +1,9 @@
 import React from "react";
-import styled from "styled-components";
 import Image from "next/image";
 import { BannerInfo } from "../types/banner";
 import BookButton from "./BookButton";
+import BurgerMenu from "./BurgerMenu";
+
 export interface Props {
   bannerInfo: BannerInfo;
 }

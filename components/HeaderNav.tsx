@@ -1,8 +1,9 @@
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
-import BookButton from "../BookButton";
+import BookButton from "./BookButton";
 import styled from "styled-components";
+import BurgerMenu from "./BurgerMenu";
 
 const Title = styled.div`
   font-size: 1.5em;
@@ -22,6 +23,7 @@ const Header = styled.header`
   padding: 18px 70px;
   height: 82px;
   display: flex;
+  justify-content: space-between;
   border-bottom: 1px solid #c7cbd6;
   position: fixed;
   width: 100%;
@@ -37,7 +39,15 @@ const NavLink = styled.nav`
     font-size: 13px;
     color: #3e3d3c; // TO DO: to move
     padding: 0;
+    display: flex;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 13px;
+    color: #3e3d3c;
+    padding: 0;
 
+    @media (max-width: 1023px) {
+      display: none;
+    }
     @media (max-width: 1023px) {
       display: none;
     }
@@ -50,7 +60,10 @@ const NavLink = styled.nav`
         text-decoration: none;
         text-transform: uppercase;
         color: inherit;
-        color: black;
+        font-family: "Nunito Sans", sans-serif;
+        font-size: 13px;
+        color: #3e3d3c;
+        padding: 0;
       }
     }
     display: flex;
@@ -89,6 +102,7 @@ function HeaderNav() {
         </ul>
       </NavLink>
       <BookButton />
+      <BurgerMenu />
     </Header>
   );
 }

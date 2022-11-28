@@ -7,8 +7,16 @@ const BookButton: React.FC = () => {
     overflow: hidden;
     text-overflow: ellipsis;
     opacity: 0;
-    width: 177px;
-
+    font-family: "Nunito Sans", sans-serif;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    border-radius: 2px;
+    padding: 5px 50px;
+    background-color: #c7cbd6;
+    color: #fff;
+    font-family: Nunito Sans, sans-serif;
+    font-size: 13px;
     @media (min-width: 1024px) {
       opacity: 1;
     }
@@ -20,14 +28,14 @@ const BookButton: React.FC = () => {
   const treatWellLink =
     "https://widget.treatwell.co.uk/place/beauti-skin-clinic/";
   return (
-    <a
+    <LogoContainer
       href={treatWellLink}
       className="book-now"
       target="_blank"
       rel="noreferrer"
     >
       <h2>Book now</h2>
-    </a>
+    </LogoContainer>
   );
 };
 
