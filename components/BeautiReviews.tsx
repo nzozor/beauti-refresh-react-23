@@ -24,7 +24,7 @@ const BeautiReviews: React.FC<Props> = ({ reviews }) => {
       <Swiper
         className="xl:max-w-[1500px] h-full reviewSwiper"
         pagination={pagination}
-        spaceBetween={0}
+        spaceBetween={20}
         loop={true}
         slidesPerView={1}
         breakpoints={{
@@ -38,7 +38,7 @@ const BeautiReviews: React.FC<Props> = ({ reviews }) => {
       >
         {reviews.map((review: Review, index: number) => (
           <SwiperSlide key={index} className="slideHandle w-full min-h-[380px]">
-            <div className="slideContainer h-[200px] p-[20px] w-[70%] lg:w-[400px] border-2-[#C7CBD6] border-2 text-center flex flex-col gap-[13px] justify-center place-items-center">
+            <div className="slideContainer h-[200px] p-[20px] w-[70%] lg:w-[400px] border-[#C7CBD6] border-2 text-center flex flex-col gap-[13px] justify-center place-items-center">
               <div className="quote text-[#3e3d3c] text-[13px]">&quot;{review.quote}&quot;</div>
               <div className="name text-[#b0b5c4]">{review.reviewerName}</div>
               <div className="">
