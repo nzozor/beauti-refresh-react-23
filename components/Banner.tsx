@@ -22,9 +22,9 @@ const HeaderNav: React.FC<Props> = ({ bannerInfo }) => {
         <h1 className="text-center sm:text-start font-[600] text-[24px] sm:text-[44px]">{bannerInfo.title2}</h1>
         <h2 className="text-center sm:text-start font-[300] text-[24px] sm:text-[44px]">{bannerInfo.title3}</h2>
         <h5 className="text-center sm:text-start text-[27px] font-[300] min-h-[37px]">{bannerInfo.title4}</h5>
-        <button className="uppercase py-[5px] px-[50px] bg-[#c7cbd6] leading-[36px] mb-[30px]">
-          <Link href="https://widget.treatwell.co.uk/place/beauti-skin-clinic/">Book Now</Link>
-        </button>
+        <Link href="https://widget.treatwell.co.uk/place/beauti-skin-clinic/">
+          <button className="uppercase py-[5px] px-[50px] bg-[#c7cbd6] leading-[36px] mb-[30px]">Book Now</button>
+        </Link>
         <p className="">{bannerInfo.asterisk}</p>
       </div>
       <div style={imgStyle} className="img-container">
