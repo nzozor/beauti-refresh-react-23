@@ -27,8 +27,8 @@ const ExclusiveStockist: React.FC = () => {
         {
           imageList.map((item, index) => {
             return (
-              <a href={item.ref} target="_blank" key={index} rel="noopener noreferrer">
-                <div className='relative duration-300 cursor-pointer exclusiveContainer flex justify-center place-items-center gap-[2rem] lg:max-w-[650px] border-[1px] border-[#C7CBD6]'>
+              <a href={item.ref} target="_blank" key={index} rel="noopener noreferrer" className="flex justify-center">
+                <div className='relative duration-300 cursor-pointer exclusiveContainer flex justify-center place-items-center gap-[2rem] max-w-[90%] lg:max-w-[650px] border-[1px] border-[#C7CBD6] hover:shadow-lg'>
                   <Image
                     className="js-lazy-image cursor-pointer"
                     loading="lazy"

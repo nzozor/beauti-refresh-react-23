@@ -15,42 +15,24 @@ const aboutUs: NextPage<{ copy: string }> = ({ copy }: any) => {
     },
   };
   return (
-    <section>
-      <div dangerouslySetInnerHTML={{ __html: copy }} />
-      <Swiper
-        className="mySwiper"
-        pagination={pagination}
-        spaceBetween={50}
-        slidesPerView={3}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
-        modules={[Pagination]}
-      >
-        <SwiperSlide>
-          <Image
-            src="/images/cinzia-campigotto-1.jpg"
-            alt="Cinzia Profile Picture 1 | Beauti Skin Clinic Oval"
-            width={300}
-            height={100}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src="/images/cinzia-campigotto-2.jpg"
-            alt="Cinzia Profile Pictur 2 | Beauti Skin Clinic Oval"
-            width={300}
-            height={100}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src="/images/cinzia-campigotto-3.jpg"
-            alt="Cinzia Profile Pictur 3 | Beauti Skin Clinic Oval"
-            width={300}
-            height={100}
-          />
-        </SwiperSlide>
-      </Swiper>
+    <section className="aboutus text-[#3e3d3c] text-start">
+      <div dangerouslySetInnerHTML={{ __html: copy }} className='py-[2rem] px-[2rem] md:px-[6rem] mx-auto xl:px-[15rem]' />
+      <div className="flex justify-center place-items-center">
+        <img
+          src="/images/cinzia-campigotto-1.jpg"
+          alt="Cinzia Profile Picture 1 | Beauti Skin Clinic Oval"
+        />
+
+        <img
+          src="/images/cinzia-campigotto-2.jpg"
+          alt="Cinzia Profile Pictur 2 | Beauti Skin Clinic Oval"
+        />
+
+        <img
+          src="/images/cinzia-campigotto-3.jpg"
+          alt="Cinzia Profile Pictur 3 | Beauti Skin Clinic Oval"
+        />
+      </div>
     </section>
   );
 };
