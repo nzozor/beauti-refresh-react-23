@@ -154,3 +154,26 @@ h3 {
 .reviewSwiper .swiper-pagination-bullet-active {
   background: #c7cbd6;
 }
+
+/* Exclusive Stockist */
+.exclusiveContainer::before {
+  content: "";
+  display: block;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #c7cbd640;
+  transition: all .4s;
+  z-index: 2;
+}
+
+.exclusiveContainer:hover:before {
+  opacity: 1;
+}
+
+.exclusiveContainer:hover .exclusiveLinkIcon {
+  display: block;
+}
