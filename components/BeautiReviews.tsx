@@ -27,6 +27,7 @@ const BeautiReviews: React.FC<Props> = ({ reviews }) => {
         spaceBetween={0}
         loop={true}
         slidesPerView={1}
+        grabCursor={true}
         breakpoints={{
           1024: {
             slidesPerView: 3,

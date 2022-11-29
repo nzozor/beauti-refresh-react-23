@@ -82,12 +82,8 @@ h3 {
 /* Banner Swiper Bullets */
 
 .bannerSwiper .swiper-pagination-bullet {
-  background: transparent;
+  @apply bg-transparent opacity-100 border-[1px] border-[#fff] h-[15px] w-[15px];
   margin: 0 0.4rem !important;
-  opacity: 1;
-  border: 1px solid #fff;
-  height: 15px;
-  width: 15px;
 }
 
 .bannerSwiper .swiper-pagination-bullet-active {
@@ -97,27 +93,17 @@ h3 {
 /* Reviews Swiper */
 
 .reviewSwiper {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @apply relative flex justify-center place-items-center;
 }
 
 .reviewSwiper .slideHandle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @apply flex justify-center place-items-center;
 }
 
 .reviewSwiper::after,
 .reviewSwiper::before {
+  @apply bg-[#fff] z-[2] w-[300px] h-full absolute top-0;
   content: '';
-  background: #fff;
-  z-index: 2;
-  width: 300px;
-  height: 100%;
-  position: absolute;
-  top: 0;
   filter: blur(10px);
 }
 
@@ -132,7 +118,6 @@ h3 {
 }
 
 @media screen and (max-width: 1050px) {
-
   .reviewSwiper::after,
   .reviewSwiper::before {
     display: none;
@@ -156,11 +141,7 @@ h3 {
 }
 
 .reviewSwiper .swiper-pagination-bullet {
-  width: 15px;
-  opacity: 1;
-  height: 15px;
-  border: 2px solid #c7cbd6;
-  background: transparent;
+  @apply w-[15px] h-[15px] opacity-100 border-2 border-[#c7cbd6] bg-transparent;
 }
 
 .reviewSwiper .swiper-pagination-bullet-active {
@@ -170,16 +151,8 @@ h3 {
 /* Exclusive Stockist */
 .exclusiveContainer::before {
   content: "";
-  display: block;
-  opacity: 0;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #c7cbd640;
+  @apply block opacity-0 h-full w-full absolute top-0 left-0 bg-[#c7cbd640] z-[2];
   transition: all .4s;
-  z-index: 2;
 }
 
 .exclusiveContainer:hover:before {
@@ -201,12 +174,8 @@ h3 {
 }
 
 .aboutus h1 {
+  @apply font-[100] text-left text-[2rem] text-[#3e3d3c];
   margin: 40px 0 20px;
-  font-weight: 100;
-  text-align: left;
-  font-size: 2rem;
-  font-weight: 100;
-  color: #3e3d3c;
 }
 
 .aboutus .beauti {
@@ -215,13 +184,7 @@ h3 {
 
 
 .aboutus .beauti div {
-  font-weight: 100;
-  font-size: 1.5rem;
-  font-size: 29px;
-  display: flex;
-  place-items: baseline;
-  gap: 0.5rem;
-  margin-bottom: 40px;
+  @apply font-[100] text-[29px] flex place-items-baseline gap-[0.5rem] mb-[40px];
 }
 
 .aboutus .beauti div h2 {
@@ -242,12 +205,7 @@ h3 {
 }
 
 .aboutus h3 {
-  text-align: start;
-  font-size: 17px;
-  font-weight: 100;
-  line-height: 32px;
-  margin-bottom: 40px;
-  color: #3e3d3c;
+  @apply text-[#3e3d3c] text-start text-[17px] font-[100] leading-[32px] mb-[40px];
 }
 
 .aboutus a {
@@ -256,25 +214,25 @@ h3 {
 }
 
 .aboutus p {
-  margin-bottom: 40px;
-  font-size: 17px !important;
-  font-weight: 100;
-  line-height: 32px;
-  color: #3e3d3c;
+  @apply text-[#3e3d3c] mb-[40px] text-[17px] font-[100] leading-[32px];
 }
 
 .aboutus h4 {
-  font-weight: 300;
-  font-size: 29px;
+  @apply font-[300] text-[29px] text-left text-[#3e3d3c];
   margin: 20px 0;
-  text-align: left;
-  color: #3e3d3c;
 }
 
 .aboutus h5 {
-  font-weight: 100;
-  font-size: 29px;
+  @apply text-[#3e3d3c] font-[100] text-[29px] text-left;
   margin: 20px 0;
-  text-align: left;
-  color: #3e3d3c;
+}
+
+/* Contact */
+
+.contactSwiper .swiper-pagination-bullet {
+  @apply w-[12px] opacity-100 h-[12px] border-2 border-[#fff] bg-transparent;
+}
+
+.contactSwiper .swiper-pagination-bullet-active {
+  background: #fff;
 }
