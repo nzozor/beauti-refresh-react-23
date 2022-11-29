@@ -19,13 +19,13 @@ const LogoContainer = styled.div`
   }
 `;
 const Header = styled.header`
-  background-color: white;
+  background: #fff;
   padding: 18px 70px;
-  height: 82px;
+  height: 81px;
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #c7cbd6;
-  position: fixed;
+  position: sticky;
   width: 100%;
   top: 0;
   z-index: 10;

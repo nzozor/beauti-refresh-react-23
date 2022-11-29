@@ -1,7 +1,6 @@
 import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import { BannerInfo } from "../types/banner";
-import styles from "../styles/Home.module.css";
 import { REVIEWS } from "../mocks/reviews";
 import HomePageSlider from "../components/HomePageSlider";
 import BeautiSummary from "../components/BeautiSummary";
@@ -15,7 +14,7 @@ const Home: NextPage<{ bannersInfo: BannerInfo[] }> = ({
 }: any) => {
   return (
     <div>
-      <main className={styles.main}>
+      <main>
         <HomePageSlider banners={bannersInfo} />
         <BeautiSummary />
         <BeautiReviews reviews={reviews} />
