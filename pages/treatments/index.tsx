@@ -7,6 +7,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import BookButton from "../../components/BookButton";
 
 const Treatments: NextPage<{
   treatments: Treatment[];
@@ -81,7 +82,10 @@ const Treatments: NextPage<{
         <div key={treatment.id}>
           <div>Treatment:{treatment.title}</div>
           <div>{displayPrices(treatment.id)}</div>
-          <Link href={`/treatments/${treatment.slug}`}>Read more</Link>
+          {treatment.showcasePage && (
+            <Link href={`/treatments/${treatment.slug}`}>Read more</Link>
+          )}
+          {!treatment.showcasePage && <BookButton />}
         </div>
       ));
   };
