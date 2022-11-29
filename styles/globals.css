@@ -187,11 +187,11 @@ h3 {
 }
 
 .exclusiveLinkIcon {
-  display: none;
+  display: none !important;
 }
 
 .exclusiveContainer:hover .exclusiveLinkIcon {
-  display: block;
+  display: block !important;
 }
 
 /* About Us */
