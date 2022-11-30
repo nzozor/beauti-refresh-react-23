@@ -124,7 +124,7 @@ const Treatments: NextPage<{
   return (
     <div className="bg-[#c7cbd626] py-[70px] px-[30px]">
       <h1 className="text-[32px] mb-[50px] text-[#3e3d3c] font-[100] text-center">Treatments</h1>
-      <div className="mx-auto max-w-[853px] bg-transparent">
+      <div className="mx-auto max-w-[853px] treatmentBackground">
         {sections
           .filter(
             (section) =>
@@ -135,16 +135,16 @@ const Treatments: NextPage<{
               key={section.id}
               expanded={expanded.includes(section.id)}
               onChange={handleChange(section.id)}
-              className="bg-transparent"
+              className="treatmentBackground"
             >
               <div className="flex justify-start place-items-center">
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls="panel1bh-content"
                   id="panel1bh-header"
-                  className="w-full md:w-[100%] p-2 relative flex justify-center place-items-center bg-transparent"
+                  className="w-full md:w-[100%] p-2 relative flex justify-center place-items-center treatmentBackground"
                 >
-                  <h2 className="font-[100] text-[22px] text-start leading-[30px] bg-transparent">
+                  <h2 className="font-[100] text-[22px] text-start leading-[30px] treatmentBackground">
                     {section.sectionName}
                   </h2>
                 </AccordionSummary>

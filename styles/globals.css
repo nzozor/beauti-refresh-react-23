@@ -236,3 +236,8 @@ h3 {
 .contactSwiper .swiper-pagination-bullet-active {
   background: #fff;
 }
+
+/* Treatments */
+.treatmentBackground {
+  background: transparent !important;
+}
