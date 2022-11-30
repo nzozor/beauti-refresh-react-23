@@ -252,6 +252,14 @@ a {
   background-color: #c7cbd62e;
 }
 
+.MuiPaper-root {
+  box-shadow: none !important;
+}
+
+.p-4 {
+  padding: 1rem !important;
+}
+
 .navModal {
   z-index: 1 !important;
 }
