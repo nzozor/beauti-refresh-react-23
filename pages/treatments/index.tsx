@@ -142,7 +142,7 @@ const Treatments: NextPage<{
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls="panel1bh-content"
                   id="panel1bh-header"
-                  className="w-full md:w-[100%] p-2 relative flex justify-center place-items-center"
+                  className="w-full md:w-[100%] p-2 relative flex justify-center place-items-center bg-transparent"
                 >
                   <h2 className="font-[100] text-[22px] text-start leading-[30px] bg-transparent">
                     {section.sectionName}
