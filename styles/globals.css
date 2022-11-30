@@ -251,3 +251,7 @@ a {
 .treatments table tr:nth-child(even) {
   background-color: #c7cbd62e;
 }
+
+.navModal {
+  z-index: 1 !important;
+}

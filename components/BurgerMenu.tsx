@@ -131,7 +131,7 @@ const BurgerMenu: React.FC = () => {
         onClose={closeModal}
         aria-labelledby="navbar"
         aria-describedby="navbar"
-        className='bg-[#fff] outline-none border-none w-[100vw] h-[100vh] mt-[5rem] z-[1]'
+        className='bg-[#fff] outline-none border-none w-[100vw] h-[100vh] mt-[5rem] navModal'
       >
         <ul className="w-[100vw] h-[100vh] bg-[#fff] flex place-items-center flex-col pt-[5rem]">
           {
