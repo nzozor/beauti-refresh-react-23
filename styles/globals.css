@@ -236,9 +236,3 @@ h3 {
 .contactSwiper .swiper-pagination-bullet-active {
   background: #fff;
 }
-
-/* Treatments */
-
-.treatmentsTable tr:nth-child(2n) {
-  
-}

@@ -64,7 +64,7 @@ const Treatments: NextPage<{
               <tr className="m-2">
                 {!price.hideColumnTitles &&
                   price.colTitles.map((colTitle: any) => (
-                    <th key={colTitle.id} className="p-2 pl-[20px] text-start capitalize bg-[#c7cbd62e]">
+                    <th key={colTitle.id} className="p-2 pl-[20px] text-start capitalize bg-[#c7cbd62e] min-w-[120px]">
                       {!colTitle.hide && colTitle.title}
                     </th>
                   ))}
@@ -74,7 +74,7 @@ const Treatments: NextPage<{
               {price.Rows.map((row: any) => (
                 <tr key={row.id}>
                   {row.singleRow.map((col: any) => (
-                    <td key={col.id} className="p-2 w-[fit-content] pl-[20px]">{col.value}</td>
+                    <td key={col.id} className="p-2 w-[fit-content] pl-[20px] min-w-[120px]">{col.value}</td>
                   ))}
                 </tr>
               ))}
