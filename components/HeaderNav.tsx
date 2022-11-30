@@ -30,6 +30,9 @@ const Header = styled.header`
   top: 0;
   z-index: 10;
   align-items: center;
+  @media screen and (max-width: 1024px) {
+    padding: 18px 30px;
+  }
 `;
 
 const NavLink = styled.nav`

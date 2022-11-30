@@ -120,7 +120,7 @@ const BurgerMenu: React.FC = () => {
 
   return (
     <>
-      <MenuIcon onClick={() => {openModal()}} className={isModalActive ? 'active' : ''}>
+      <MenuIcon onClick={() => {isModalActive ? closeModal() : openModal()}} className={isModalActive ? 'active' : ''}>
         <div>
           <span></span>
           <span></span>
