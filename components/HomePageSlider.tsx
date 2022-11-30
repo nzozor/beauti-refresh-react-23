@@ -5,8 +5,9 @@ import Banner from "./Banner";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/navigation";
-import { Pagination } from "swiper";
+import { Pagination, EffectFade } from "swiper";
 import "swiper/css/pagination";
+import 'swiper/css/effect-fade';
 
 export interface Props {
   banners: BannerInfo[];
@@ -21,13 +22,13 @@ const HomePageSlider: React.FC<Props> = ({ banners }) => {
   return (
     <div className="w-screen">
       <Swiper
-        className="mySwiper"
+        className="mySwiper bannerSwiper"
         pagination={pagination}
-        spaceBetween={50}
+        spaceBetween={0}
         slidesPerView={1}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
-        modules={[Pagination]}
+        effect='fade'
+        speed={1500}
+        modules={[Pagination, EffectFade]}
       >
         {banners.map((banner: BannerInfo) => (
           <SwiperSlide key={banner.id.toString()} className="w-full">
