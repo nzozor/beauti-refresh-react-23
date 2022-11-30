@@ -42,7 +42,7 @@ const Treatments: NextPage<{
       }
     };
 
-  const displayPrices = (parentId: string, slugRef: string = "") => {
+  const displayPrices = (parentId: string, slugRef: string = "", showcasePage: boolean = false) => {
     return prices
       .filter(
         (price: any) =>
@@ -54,7 +54,10 @@ const Treatments: NextPage<{
             slugRef && (
               <div className="bg-[#c7cbd699] flex justify-between place-items-center p-[20px]">
                 <h2 className="text-[17px] text-start font-robotoSans">{price.priceTitle}</h2>
-                <Link href={`/treatments/${slugRef}`}><button className="w-[146px] h-[41px] border-[1px] border-[#3E3D3C] bg-transparent text-[#3e3d3c]">Read more</button></Link>
+                {showcasePage && (
+                  <Link href={`/treatments/${slugRef}`}><button className="w-[146px] h-[41px] border-[1px] border-[#3E3D3C] bg-transparent text-[#3e3d3c]">Read more</button></Link>
+                )}
+                {!showcasePage && <BookButton />}
               </div>
             )
           }
@@ -87,8 +90,8 @@ const Treatments: NextPage<{
     return treatments
       .filter((treatment: any) => treatment.section?.id === sectionId)
       .map((treatment) => (
-        <div key={treatment.id} className="py-[1rem]">
-          <div>{displayPrices(treatment.id, treatment.slug)}</div>
+        <div key={treatment.id} className="">
+          <div>{displayPrices(treatment.id, treatment.slug, treatment.showcasePage)}</div>
         </div>
       ));
   };
@@ -109,7 +112,7 @@ const Treatments: NextPage<{
             aria-controls="panel1bh-content"
             id="panel1bh-header"
           >
-            <h2 className="font-[100] text-[22px] text-center leading-[30px] pl-[1rem] font-robotoSans">
+            <h2 className="p-2 font-[100] text-[22px] text-center leading-[30px] pl-[1rem] font-robotoSans">
               {section.sectionName}
             </h2>
           </AccordionSummary>
@@ -122,7 +125,7 @@ const Treatments: NextPage<{
   };
 
   return (
-    <div className="bg-[#c7cbd626] py-[70px] px-[10px] md:px-[30px] treatments">
+    <div className="bg-transparent py-[70px] px-[10px] md:px-[30px] treatments">
       <h1 className="text-[32px] mb-[50px] text-[#3e3d3c] font-[100] text-center font-robotoSans">Treatments</h1>
       <div className="mx-auto md:max-w-[853px] treatmentBackground">
         {sections
@@ -142,13 +145,13 @@ const Treatments: NextPage<{
                   expandIcon={<ExpandMoreIcon className='expandMoreIcon'/>}
                   aria-controls="panel1bh-content"
                   id="panel1bh-header"
-                  className="p-2 relative flex text-start w-[50vw] place-items-center treatmentBackground cursor-pointer grow-[0]"
+                  className="p-4 hover:text-[#656565] relative flex text-start w-[50vw] place-items-center treatmentBackground cursor-pointer grow-[0]"
                 >
-                  <h2 className="font-[100] text-[22px] text-start leading-[30px] treatmentBackground">
+                  <h2 className="font-[100] text-[22px] text-start leading-[30px] treatmentBackground headerTitle">
                     {section.sectionName}
                   </h2>
                 </AccordionSummary>
-                <div className="w-0 md:w-[22%]">
+                <div className="w-0 md:w-[24%]">
                   <BookButton />
                 </div>
               </div>
