@@ -225,6 +225,29 @@ a {
 }
 
 /* Treatments */
-.treatmentBackground {
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root {
   background: transparent !important;
+  box-shadow: none !important;
+}
+
+.MuiPaper-root.Mui-expanded:not(:first-child), 
+.MuiPaper-root.MuiPaper-elevation:not(:first-child) {
+  border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+.expandMoreIcon {
+  font-size: 2rem !important;
+}
+
+#panel1bh-header {
+  justify-content: flex-start !important;
+}
+
+#panel1bh-header div {
+  flex-grow: initial !important;
+  justify-content: flex-start !important;
+}
+
+.treatments table tr:nth-child(even) {
+  background-color: #c7cbd62e;
 }

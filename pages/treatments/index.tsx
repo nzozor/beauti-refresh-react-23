@@ -49,7 +49,7 @@ const Treatments: NextPage<{
           price.section?.id === parentId || price.treatment?.id === parentId
       )
       .map((price: any) => (
-        <div key={price.id} className="treatmentsTable my-[1rem]">
+        <div key={price.id} className="treatmentsTable my-[1rem] mx-[1rem]">
           {
             slugRef && (
               <div className="bg-[#c7cbd699] flex justify-between place-items-center p-[20px]">
@@ -122,9 +122,9 @@ const Treatments: NextPage<{
   };
 
   return (
-    <div className="bg-[#c7cbd626] py-[70px] px-[30px]">
+    <div className="bg-[#c7cbd626] py-[70px] px-[10px] md:px-[30px] treatments">
       <h1 className="text-[32px] mb-[50px] text-[#3e3d3c] font-[100] text-center font-robotoSans">Treatments</h1>
-      <div className="mx-auto max-w-[853px] treatmentBackground">
+      <div className="mx-auto md:max-w-[853px] treatmentBackground">
         {sections
           .filter(
             (section) =>
@@ -135,24 +135,24 @@ const Treatments: NextPage<{
               key={section.id}
               expanded={expanded.includes(section.id)}
               onChange={handleChange(section.id)}
-              className="treatmentBackground"
+              className="treatmentBackground cursor-pointer"
             >
-              <div className="flex justify-start place-items-center">
+              <div className="flex justify-between place-items-center">
                 <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
+                  expandIcon={<ExpandMoreIcon className='expandMoreIcon'/>}
                   aria-controls="panel1bh-content"
                   id="panel1bh-header"
-                  className="w-full md:w-[100%] p-2 relative flex justify-center place-items-center treatmentBackground"
+                  className="p-2 relative flex text-start w-[50vw] place-items-center treatmentBackground cursor-pointer grow-[0]"
                 >
                   <h2 className="font-[100] text-[22px] text-start leading-[30px] treatmentBackground">
                     {section.sectionName}
                   </h2>
                 </AccordionSummary>
-                <div className="w-[28%]">
+                <div className="w-0 md:w-[22%]">
                   <BookButton />
                 </div>
               </div>
-              <AccordionDetails className="p-0 m-0">
+              <AccordionDetails className={section.sectionName === 'Waxing' ? 'p-0 m-0 grid md:grid-cols-2' : 'p-0 m-0'}>
                 {displaySectionChildren(section)} {displayTreatment(section.id)}
                 {displayPrices(section.id)}
               </AccordionDetails>

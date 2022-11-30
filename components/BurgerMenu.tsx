@@ -1,3 +1,5 @@
+import { Modal } from "@mui/material";
+import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
 const BurgerMenu: React.FC = () => {
@@ -6,7 +8,7 @@ const BurgerMenu: React.FC = () => {
     width: 50px;
     height: 50px;
     cursor: pointer;
-    @media (min-width: 576px) {
+    @media (min-width: 1024px) {
       display: none;
     }
     .menu-icon__cheeckbox {
@@ -39,7 +41,6 @@ const BurgerMenu: React.FC = () => {
       height: 2px;
       background-color: #3e3d3c;
       border-radius: 1px;
-      transition: all 0.2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
 
       &:first-of-type {
         top: 0;
@@ -88,13 +89,63 @@ const BurgerMenu: React.FC = () => {
     }
   `;
 
+  const navigationLink = [
+    {
+      title: 'Home',
+      ref: '/',
+    },
+    {
+      title: 'About Us',
+      ref: '/about-us',
+    },
+    {
+      title: 'Treatments',
+      ref: '/treatments',
+    },
+    {
+      title: 'Contact',
+      ref: '/contact',
+    },
+  ]
+
+  const [isModalActive, setIsModalActive] = React.useState(false)
+
+  const openModal = () => {
+    setIsModalActive(true);
+  }
+
+  const closeModal = () => {
+    setIsModalActive(false);
+  }
+
   return (
-    <MenuIcon>
-      <div>
-        <span></span>
-        <span></span>
-      </div>
-    </MenuIcon>
+    <>
+      <MenuIcon onClick={() => {openModal()}} className={isModalActive ? 'active' : ''}>
+        <div>
+          <span></span>
+          <span></span>
+        </div>
+      </MenuIcon>
+      <Modal
+        open={isModalActive}
+        onClose={closeModal}
+        aria-labelledby="navbar"
+        aria-describedby="navbar"
+        className='bg-[#fff] outline-none border-none w-[100vw] h-[100vh] mt-[5rem] z-[1]'
+      >
+        <ul className="w-[100vw] h-[100vh] bg-[#fff] flex place-items-center flex-col pt-[5rem]">
+          {
+            navigationLink.map((item, index) => {
+              return (
+                <li key={index} className='text-[#000] text-[20px] leading-[40px] font-nunitoSans font-[300] uppercase mb-[20px]' onClick={() => closeModal()}>
+                  <Link href={item.ref}>{item.title}</Link>
+                </li>
+              )
+            })
+          }
+        </ul>
+      </Modal>
+    </>
   );
 };
 
