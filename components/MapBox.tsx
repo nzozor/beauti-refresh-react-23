@@ -37,7 +37,7 @@ function MapBox({ isContact = false }) {
     <section>
       {
         !isContact && (
-          <h3 className="mt-[60px] mb-[50px] text-[32px] text-[#3e3d3c] font-[100]">Find Us</h3>
+          <h3 className="mt-[60px] mb-[50px] text-[32px] text-[#3e3d3c] font-[100] font-robotoSans text-center">Find Us</h3>
         )
       }
       <div className="">

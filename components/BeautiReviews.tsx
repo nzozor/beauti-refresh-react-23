@@ -20,7 +20,7 @@ const BeautiReviews: React.FC<Props> = ({ reviews }) => {
 
   return (
     <section>
-      <h3 className="mt-[50px] mb-0 text-[32px] text-[#3e3d3c] font-[100]">5 Star Reviews</h3>
+      <h3 className="mt-[50px] mb-0 text-[32px] text-[#3e3d3c] font-[100] font-nunitoSans text-center">5 Star Reviews</h3>
       <Swiper
         className="xl:max-w-[1300px] h-full reviewSwiper"
         pagination={pagination}
@@ -40,8 +40,8 @@ const BeautiReviews: React.FC<Props> = ({ reviews }) => {
         {reviews.map((review: Review, index: number) => (
           <SwiperSlide key={index} className="slideHandle w-full min-h-[380px]">
             <div className="slideContainer h-[200px] p-[20px] w-[70%] lg:w-[85%] border-[#C7CBD6] border-[1px] text-center flex flex-col gap-[13px] justify-center place-items-center">
-              <div className="quote text-[#3e3d3c] text-[13px]">&quot;{review.quote}&quot;</div>
-              <div className="name text-[#b0b5c4]">{review.reviewerName}</div>
+              <div className="quote text-[#3e3d3c] text-[13px] font-nunitoSans">&quot;{review.quote}&quot;</div>
+              <div className="name text-[#b0b5c4] font-nunitoSans">{review.reviewerName}</div>
               <div className="flex justify-center gap-[0.6rem]">
                 <StarIcon className="text-[25px] text-[#c7cbd6]" />
                 <StarIcon className="text-[25px] text-[#c7cbd6]" />

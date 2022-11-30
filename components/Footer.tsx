@@ -5,7 +5,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 
 function Footer() {
   return (
-    <footer className="relative flex flex-col lg:flex-row h-[400px] text-center place-items-center md:place-items-start">
+    <footer className="relative flex flex-col lg:flex-row h-[400px] text-center place-items-center md:place-items-start font-nunitoSans">
       <Link href="/">
         <div className="md:absolute w-[180px] pt-[2rem] md:pl-[5rem] cursor-pointer">
           <img

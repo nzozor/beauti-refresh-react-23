@@ -53,7 +53,7 @@ const Treatments: NextPage<{
           {
             slugRef && (
               <div className="bg-[#c7cbd699] flex justify-between place-items-center p-[20px]">
-                <h2 className="text-[17px] text-start">{price.priceTitle}</h2>
+                <h2 className="text-[17px] text-start font-robotoSans">{price.priceTitle}</h2>
                 <Link href={`/treatments/${slugRef}`}><button className="w-[146px] h-[41px] border-[1px] border-[#3E3D3C] bg-transparent text-[#3e3d3c]">Read more</button></Link>
               </div>
             )
@@ -64,7 +64,7 @@ const Treatments: NextPage<{
               <tr className="m-2">
                 {!price.hideColumnTitles &&
                   price.colTitles.map((colTitle: any) => (
-                    <th key={colTitle.id} className="p-2 pl-[20px] text-start capitalize bg-[#c7cbd62e] min-w-[120px]">
+                    <th key={colTitle.id} className="p-2 pl-[20px] text-start capitalize bg-[#c7cbd62e] min-w-[120px] font-nunitoSans">
                       {!colTitle.hide && colTitle.title}
                     </th>
                   ))}
@@ -74,7 +74,7 @@ const Treatments: NextPage<{
               {price.Rows.map((row: any) => (
                 <tr key={row.id}>
                   {row.singleRow.map((col: any) => (
-                    <td key={col.id} className="p-2 w-[fit-content] pl-[20px] min-w-[120px]">{col.value}</td>
+                    <td key={col.id} className="p-2 w-[fit-content] pl-[20px] min-w-[120px] font-nunitoSans">{col.value}</td>
                   ))}
                 </tr>
               ))}
@@ -109,7 +109,7 @@ const Treatments: NextPage<{
             aria-controls="panel1bh-content"
             id="panel1bh-header"
           >
-            <h2 className="font-[100] text-[22px] text-center leading-[30px] pl-[1rem]">
+            <h2 className="font-[100] text-[22px] text-center leading-[30px] pl-[1rem] font-robotoSans">
               {section.sectionName}
             </h2>
           </AccordionSummary>
@@ -123,7 +123,7 @@ const Treatments: NextPage<{
 
   return (
     <div className="bg-[#c7cbd626] py-[70px] px-[30px]">
-      <h1 className="text-[32px] mb-[50px] text-[#3e3d3c] font-[100] text-center">Treatments</h1>
+      <h1 className="text-[32px] mb-[50px] text-[#3e3d3c] font-[100] text-center font-robotoSans">Treatments</h1>
       <div className="mx-auto max-w-[853px] treatmentBackground">
         {sections
           .filter(
@@ -148,7 +148,7 @@ const Treatments: NextPage<{
                     {section.sectionName}
                   </h2>
                 </AccordionSummary>
-                <div className="w-[25%]">
+                <div className="w-[28%]">
                   <BookButton />
                 </div>
               </div>

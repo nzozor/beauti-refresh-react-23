@@ -49,8 +49,8 @@ const aboutUs: NextPage = () => {
             <MapBox isContact={true}/>
             <article className="contact-points text-center mt-[6rem] mb-[4rem] grid grid-cols-1 lg:grid-cols-3 mx-auto gap-[2rem] lg:gap-[5rem] md:w-[880px]">
                 <div>
-                    <h2 className="mb-[25px] font-[100] text-[34px] text-[#3e3d3c]">Address</h2>
-                    <div className="address-section text-[17px] leading-[29px] font-[100] text-[#3e3d3c]">
+                    <h2 className="mb-[25px] font-[100] text-[34px] text-[#3e3d3c] font-robotoSans">Address</h2>
+                    <div className="address-section text-[17px] leading-[29px] font-[100] text-[#3e3d3c] font-nunitoSans">
                         66A Brixton Road <br />
                         Oval | Brixton <br />
                         London, &nbsp;
@@ -65,18 +65,18 @@ const aboutUs: NextPage = () => {
                     </div>
                 </div>
                 <div>
-                    <h1 className="mb-[25px] font-[100] text-[34px] text-[#3e3d3c]">Contact Details</h1>
-                    <div className="text-[17px] leading-[29px] font-[100] text-[#3e3d3c]">
+                    <h1 className="mb-[25px] font-[100] text-[34px] text-[#3e3d3c] font-robotoSans">Contact Details</h1>
+                    <div className="text-[17px] leading-[29px] font-[100] text-[#3e3d3c] font-nunitoSans">
                         020 7820 1177 <br />
                         info@beautiskinclinic.com
                     </div>
                 </div>
                 <div>
-                    <h2 className="mb-[25px] font-[100] text-[34px] text-[#3e3d3c]">Hours</h2>
-                    <div className="text-[17px] leading-[29px] font-[100] text-[#3e3d3c]">
+                    <h2 className="mb-[25px] font-[100] text-[34px] text-[#3e3d3c] font-robotoSans">Hours</h2>
+                    <div className="text-[17px] leading-[29px] font-[100] text-[#3e3d3c] font-nunitoSans">
                         Mon-Fri | 10am-8pm <br />
                     </div>
-                    <div className="text-[17px] leading-[29px] font-[100] text-[#3e3d3c]">
+                    <div className="text-[17px] leading-[29px] font-[100] text-[#3e3d3c] font-nunitoSans">
                         Sat | 9am-5pm <br />
                     </div>
                 </div>
