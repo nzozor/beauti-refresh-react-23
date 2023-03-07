@@ -52,7 +52,7 @@ const aboutUs: NextPage = () => {
                     <h2 className="mb-[25px] font-[100] text-[34px] text-[#3e3d3c] font-robotoSans">Address</h2>
                     <div className="address-section text-[17px] leading-[29px] font-[100] text-[#3e3d3c] font-nunitoSans">
                         66A Brixton Road <br />
-                        Oval | Brixton <br />
+                        Brixton Road, Kennington <br/>
                         London, &nbsp;
                         <a
                             href="https://g.page/beautiskinclinic?share"

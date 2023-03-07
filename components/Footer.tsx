@@ -7,7 +7,7 @@ function Footer() {
   return (
     <footer className="relative flex flex-col lg:flex-row h-[400px] text-center place-items-center md:place-items-start font-nunitoSans">
       <Link href="/">
-        <div className="md:absolute w-[180px] pt-[2rem] md:pl-[5rem] cursor-pointer">
+        <div className="md:absolute w-[107px] pt-[2rem] md:ml-[4%] cursor-pointer">
           <img
             src="/images/Logo.png"
             alt="Beauti Logo"
@@ -27,7 +27,9 @@ function Footer() {
             </div>
           </div>
           <div className="mb-[1rem]">
-            66A Brixton Road, London,
+            66A Brixton Road, Kennington,<br />
+
+            London <br />
             <a
               href="https://g.page/beautiskinclinic?share"
               target="_blank"
@@ -37,7 +39,8 @@ function Footer() {
               SW9 6BP
             </a>
             <br />
-            Oval | Brixton <br />
+            Closest Tube Station: Oval <br/>
+
             Telephone: <a href="tel:02078201177" className="hover:underline">020 7820 1177</a> <br />
             Email:
             <a href="mailto:info@beautiskinclinic.com" className="hover:underline">
@@ -50,7 +53,7 @@ function Footer() {
             Sat 9am-5pm
           </div>
         </div>
-        <div className="text-[12px]">
+        <div className="text-[12px] opacity-30">
           © 2021 BEAUTI. Website design by
           {" "}
           <a href="https://www.elsabenoldi.com/" rel="noreferrer" target="_blank">

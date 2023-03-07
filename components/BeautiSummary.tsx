@@ -15,7 +15,7 @@ const HomePageSlider: React.FC = () => {
         </p>
 
         <Link href="/treatments">
-          <button className="px-[30px] py-[5px] bg-[#c7cbd6] border-r-[2px] cursor-pointer text-[#fff] leading-[36px] uppercase font-nunitoSans text-[13px]">View Treatments</button>
+          <button className="px-[30px] py-[5px] bg-[#c7cbd6]  cursor-pointer text-[#fff] leading-[36px] uppercase font-nunitoSans text-[13px] rounded">View Treatments</button>
         </Link>
 
       </div>

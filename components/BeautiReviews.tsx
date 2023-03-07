@@ -20,7 +20,7 @@ const BeautiReviews: React.FC<Props> = ({ reviews }) => {
 
   return (
     <section>
-      <h3 className="mt-[50px] mb-0 text-[32px] text-[#3e3d3c] font-[100] font-nunitoSans text-center">5 Star Reviews</h3>
+      <h3 className="mt-[45px] mb-0 text-[32px] text-[#3e3d3c] font-[100] font-robotoSans text-center">5 Star Reviews</h3>
       <Swiper
         className="xl:max-w-[1300px] h-full reviewSwiper"
         pagination={pagination}

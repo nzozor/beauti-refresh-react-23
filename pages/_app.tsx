@@ -1,11 +1,15 @@
-import "../styles/globals.css";
+import "../styles/globals.scss";
 import type { AppProps } from "next/app";
 import HeaderNav from "../components/HeaderNav";
 import Footer from "../components/Footer";
+import "@fontsource/roboto/100.css";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
+import "@fontsource/nunito-sans/300.css";
+import "@fontsource/nunito-sans/600.css";
+
 import Head from "next/head";
 import { NextPage } from "next";
 
@@ -27,6 +31,7 @@ const MyApp: NextPage<AppProps> = ({ Component, pageProps }: AppProps) => {
       <HeaderNav />
       <Component {...pageProps} />
       <Footer />
+
     </>
   );
 };

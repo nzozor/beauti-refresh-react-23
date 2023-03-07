@@ -6,10 +6,9 @@ const BookButton: React.FC = () => {
     text-transform: uppercase;
     overflow: hidden;
     text-overflow: ellipsis;
-    opacity: 0;
+    display: none;
     font-family: "Nunito Sans", sans-serif;
     height: 46px;
-    display: flex;
     align-items: center;
     padding: 5px 50px;
     border-radius: 2px;
@@ -19,11 +18,10 @@ const BookButton: React.FC = () => {
     font-family: Nunito Sans, sans-serif;
     width: fit-content;
     font-size: 13px;
-    @media (min-width: 1024px) {
-      opacity: 1;
-    }
-    @media (max-width: 767px) {
-      display: none;
+
+    @media (min-width: 600px) {
+      display: flex;
+
     }
   `;
   const treatWellLink =

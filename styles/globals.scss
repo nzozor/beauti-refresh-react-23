@@ -1,0 +1,538 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/*@import url('https://fonts.googleapis.com/css?family=Material+Icons|Lato|Roboto:100,300&display=swap');*/
+/*@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap');*/
+
+
+html {
+    overflow: hidden;
+}
+
+body {
+    overflow: visible;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    height: 100%;
+    font-family: Nunito sans, sans-serif;
+}
+
+html {
+    background-color: white;
+    height: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    margin: 0;
+}
+
+.map-container {
+    height: 500px;
+    width: 100vw;
+}
+
+.sidebar {
+    background-color: rgba(35, 55, 75, 0.9);
+    color: #fff;
+    padding: 6px 12px;
+    font-family: monospace;
+    z-index: 1;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 12px;
+    border-radius: 4px;
+}
+
+/* .img-container { */
+/* display: none; */
+.img-container span {
+    z-index: -16;
+    left: -90%!important;
+    @media screen and (min-width: 600px) {
+        left: 0!important;
+    }
+}
+
+/* } */
+
+
+/* Banner Swiper Bullets */
+
+.bannerSwiper .swiper-pagination-bullet {
+    @apply bg-transparent opacity-100 border-[1px] border-[#fff] h-[13px] w-[13px];
+    margin: 0 0.4rem !important;
+}
+
+.bannerSwiper .swiper-pagination-bullet-active {
+    background: #fff;
+}
+
+/* Reviews Swiper */
+
+.reviewSwiper {
+    @apply relative flex justify-center place-items-center;
+}
+
+.reviewSwiper .slideHandle {
+    @apply flex justify-center place-items-center;
+}
+
+.reviewSwiper::after,
+.reviewSwiper::before {
+    @apply bg-[#fff] z-[2] w-[163px] h-full absolute top-0;
+    content: '';
+    filter: blur(10px);
+}
+
+.reviewSwiper::before {
+    background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.95));
+    left: 0;
+}
+
+.reviewSwiper::after {
+    right: 0;
+    background: linear-gradient(to left, #fff, rgba(255, 255, 255, 0.95));
+}
+
+@media screen and (max-width: 1050px) {
+    .reviewSwiper::after,
+    .reviewSwiper::before {
+        display: none;
+    }
+}
+
+.reviewSwiper .swiper-slide .slideContainer {
+    opacity: 0.6;
+    transition: all 0.8s ease-in-out;
+}
+
+@media screen and (max-width: 1024px) {
+    .reviewSwiper .swiper-slide .slideContainer {
+        opacity: 1;
+    }
+}
+
+.reviewSwiper .swiper-slide-active .slideContainer {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+.reviewSwiper .swiper-pagination-bullet {
+    @apply w-[13px] h-[13px] opacity-100 border-[1px] border-[#c7cbd6] bg-transparent;
+    margin: 0 8px !important;
+}
+
+.reviewSwiper .swiper-pagination-bullet-active {
+    background: #c7cbd6;
+}
+
+/* Exclusive Stockist */
+.exclusiveContainer::before {
+    content: "";
+    @apply block opacity-0 h-full w-full absolute top-0 left-0 bg-[#c7cbd640] z-[2];
+    transition: all .4s;
+}
+
+.exclusiveContainer:hover:before {
+    opacity: 1;
+}
+
+.exclusiveLinkIcon {
+    display: none !important;
+}
+
+.exclusiveContainer:hover .exclusiveLinkIcon {
+    display: block !important;
+}
+
+/* About Us */
+
+
+.aboutus h1 {
+    @apply font-[100] text-left text-[2rem] text-[#3e3d3c] font-robotoSans;
+    margin: 35px 0 10px;
+}
+
+.aboutus .beauti div {
+    @apply font-[100] text-[29px]  place-items-baseline gap-[0.5rem] mb-[40px] font-robotoSans;
+}
+
+.aboutus .beauti div h2 {
+    display: inline-block;
+    font-weight: 300;
+    color: #3e3d3c;
+    @apply font-robotoSans;
+}
+
+.aboutus h3 {
+    @apply text-[#3e3d3c] text-start text-[17px] font-[100] leading-[32px] mb-[40px] font-nunitoSans;
+}
+
+.aboutus a {
+    text-decoration: underline;
+    color: #3e3d3c;
+    @apply font-nunitoSans;
+}
+
+.aboutus p {
+    @apply text-[#3e3d3c] mb-[40px] text-[17px] font-[100] leading-[32px] font-nunitoSans;
+}
+
+.aboutus h4 {
+    @apply font-[300] text-[29px] text-left text-[#3e3d3c] font-robotoSans;
+    margin: 20px 0;
+}
+
+.aboutus h5 {
+    @apply text-[#3e3d3c] font-[100] text-[29px] text-left font-robotoSans;
+    margin: 20px 0;
+}
+
+/* Contact */
+
+.contactSwiper .swiper-pagination-bullet {
+    @apply w-[12px] opacity-100 h-[12px]  border-[#fff];
+    background-color: #c7cbd6;
+}
+
+.contactSwiper .swiper-pagination-bullet-active {
+    background: #fff;
+}
+
+/* Treatments */
+
+
+.treatments {
+    background-color: #c7cbd626;
+}
+
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.MuiPaper-root.Mui-expanded:not(:first-child),
+.MuiPaper-root.MuiPaper-elevation:not(:first-child) {
+    border-top: 1px solid rgb(247 247 249) !important;
+}
+
+.expandMoreIcon {
+    font-size: 2rem !important;
+}
+
+#panel1bh-header {
+    justify-content: flex-start !important;
+}
+
+#panel1bh-header div {
+    flex-grow: initial !important;
+    justify-content: flex-start !important;
+}
+
+.treatments table tr:nth-child(even) {
+    background-color: #c7cbd62e;
+}
+
+.treatmentsTable {
+    .price-overflow {
+        overflow-x: auto;
+    }
+    table {
+        flex-direction: column;
+        overflow-x: auto;
+
+        thead tr, .treatmentsTable table thead th {
+            background-color: #e8e9ec !important;
+        }
+    }
+}
+
+
+.MuiPaper-root {
+    box-shadow: none !important;
+}
+
+.p-4 {
+    padding: 1rem !important;
+}
+
+.navModal {
+    z-index: 1 !important;
+}
+
+div .book-now {
+    margin-right: 0;
+    height: 46px;
+    padding: 5px 35px;
+    width: 178px;
+    display: flex;
+    justify-content: center;
+}
+
+.mat-expansion-indicator {
+    position: relative;
+    top: -4px;
+    font-size: 22px;
+    font-weight: 100;
+    line-height: 30px;
+    color: #3e3d3c;
+    cursor: pointer;
+}
+
+.mat-expansion-indicator::after {
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    content: "";
+    display: inline-block;
+    transform: rotate(45deg);
+    vertical-align: middle;
+    padding: 5px;
+    margin: 0 25px;
+    border-color: #727273;
+    transition: all .2s;
+}
+
+.MuiButtonBase-root[aria-expanded="true"] .mat-expansion-indicator::after {
+
+    transform: rotate(225deg);
+    position: relative;
+    top: 4px;
+
+}
+
+.MuiAccordionSummary-expandIconWrapper {
+    display: none;
+}
+
+.mat-expansion-indicator.left::after {
+    transform: rotate(130deg);
+    margin: 0;
+    padding: 9px;
+    border-color: #3E3D3C;
+    top: 2px;
+    left: 4px;
+    position: relative;
+}
+
+
+.book-treatment-fixed {
+    position: fixed;
+    width: 100%;
+    background-color: #ffffffb3;
+    bottom: 0;
+    text-align: center;
+    height: 70px;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    display: none;
+    .book-now {
+        opacity: 1!important;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .book-treatment-fixed {
+        display: flex;
+    }
+}
+/*Treatment showcase page*/
+
+.treatment-showcase .markdown h2 {
+    font-size: 17px;
+    font-weight: 400;
+    font-family: Nunito Sans, sans-serif;
+    text-align: left;
+    padding: 10px 15px;
+    background-color: #c7cbd666;
+    margin-top: 35px;
+    margin-bottom: 20px;
+}
+
+.treatment-showcase .markdown p {
+    margin-left: 30px;
+    margin-right: 30px;
+    font-family: Nunito Sans, sans-serif;
+    font-size: 17px;
+    font-weight: 100;
+    line-height: 32px;
+    margin-bottom: 40px;
+}
+
+.treatment-showcase .markdown ul {
+    margin-left: 30px;
+    margin-right: 30px;
+    padding: 0 0 0 20px;
+    font-family: Nunito Sans, sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 32px;
+    list-style-type: circle;
+}
+
+//burger menu
+.burger-line {
+    transition: transform 250ms;
+}
+.menu-icon {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+
+    .menu-icon__cheeckbox {
+        display: block;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        z-index: 2;
+        -webkit-touch-callout: none;
+        position: absolute;
+        opacity: 0;
+    }
+
+    div {
+        margin: auto;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        width: 22px;
+        height: 12px;
+    }
+
+    span {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #3e3d3c;
+        border-radius: 1px;
+        transition: all 0.2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
+
+        &:first-of-type {
+            top: 0;
+        }
+
+        &:last-of-type {
+            bottom: 0;
+        }
+
+
+    }
+
+    &.active {
+        span {
+            &:first-of-type {
+                transform: rotate(45deg);
+                top: 5px;
+            }
+
+            &:last-of-type {
+                transform: rotate(-45deg);
+                bottom: 5px;
+            }
+        }
+    }
+
+    &.active:hover span:first-of-type,
+    &.active:hover span:last-of-type,
+    &:hover .menu-icon__cheeckbox:checked+div span:first-of-type,
+    &:hover .menu-icon__cheeckbox:checked+div span:last-of-type {
+        width: 22px;
+    }
+
+    &:hover {
+
+        // no need hover effect on mobile.
+        @media (min-width: 1024px) {
+            span:first-of-type {
+                width: 26px;
+            }
+
+            span:last-of-type {
+                width: 12px;
+            }
+        }
+    }
+}
+
+.alt-menu {
+    font-family: lato;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #fff;
+    display: none;
+
+}
+
+
+//mobile menu
+div.main-menu {
+
+
+
+    .list {
+        ul {
+            position: relative;
+            padding-top: 30px; //margin-top: 15%;
+
+            @keyframes example {
+                0% {transform: translateY(0)}
+                100% {transform: translateY(3em)}
+            }
+
+            @for $i from 2 through 10 {
+                li:nth-child(#{$i}) {
+                    animation-delay: #{$i * 0.05}s;
+                }
+            }
+
+            li {
+                list-style-type: none;
+                text-align: center;
+                margin-bottom: 20px;
+                animation-name: example;
+                animation-duration: 1s;
+                animation-fill-mode: forwards;
+                a {
+
+                    text-transform: uppercase;
+                    color: black;
+                    font-family: 'Nunito Sans', sans-serif;
+                    font-weight: 300;
+                    line-height: 5rem;
+                    text-decoration: none;
+
+
+                    @media (max-width: 1023px) {
+                        font-size: 30px;
+                        line-height: 60px;
+                    }
+
+                    @media (max-width: 600px) {
+                        font-size: 20px;
+                        line-height: 40px;
+                    }
+
+                }
+            }
+        }
+    }
+
+
+}

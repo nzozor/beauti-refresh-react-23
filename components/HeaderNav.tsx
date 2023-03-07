@@ -20,8 +20,8 @@ const LogoContainer = styled.div`
 `;
 const Header = styled.header`
   background: #fff;
-  padding: 18px 70px;
-  height: 81px;
+  padding: 18px 4%;
+  height: 83px;
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #c7cbd6;
@@ -69,45 +69,50 @@ const NavLink = styled.nav`
         padding: 0;
       }
     }
+
     display: flex;
   }
 `;
+
 function HeaderNav() {
-  return (
-    <Header>
-      <Title>
-        Beauti Skin Clinic London | Oval | Brixton Road | Skin Treatment | SW9
-      </Title>
-      <Link href="/">
-        <LogoContainer>
-          <Image
-            src="/images/Logo.png"
-            alt="Beauti Skin Clinic Logo Beauti Skin Clinic London | Oval | Brixton Road | Skin Treatment"
-            width={300}
-            height={100}
-          />
-        </LogoContainer>
-      </Link>
-      <NavLink>
-        <ul>
-          <li>
-            <Link href="/"> Home </Link>{" "}
-          </li>
-          <li>
-            <Link href="/about-us"> About us </Link>{" "}
-          </li>
-          <li>
-            <Link href="/treatments"> Treatments </Link>{" "}
-          </li>
-          <li>
-            <Link href="/contact"> Contact </Link>{" "}
-          </li>
-        </ul>
-      </NavLink>
-      <BookButton />
-      <BurgerMenu />
-    </Header>
-  );
+    return (
+        <Header>
+            <Title>
+                Beauti Skin Clinic London | Oval | Brixton Road | Skin Treatment | SW9
+            </Title>
+            <Link href="/">
+                <LogoContainer>
+                    <Image
+                        src="/images/Logo.png"
+                        style={{cursor: 'pointer'}}
+                        alt="Beauti Skin Clinic Logo Beauti Skin Clinic London | Oval | Brixton Road | Skin Treatment"
+                        width={300}
+                        height={100}
+                    />
+                </LogoContainer>
+            </Link>
+            <NavLink>
+                <ul>
+                    <li>
+                        <Link href="/"> Home </Link>{" "}
+                    </li>
+                    <li>
+                        <Link href="/about-us"> About us </Link>{" "}
+                    </li>
+                    <li>
+                        <Link href="/treatments"> Treatments </Link>{" "}
+                    </li>
+                    <li>
+                        <Link href="/contact"> Contact </Link>{" "}
+                    </li>
+                </ul>
+            </NavLink>
+            <div className="opacity-0 lg:opacity-100">
+                <BookButton/>
+            </div>
+            <BurgerMenu/>
+        </Header>
+    );
 }
 
 export default HeaderNav;
