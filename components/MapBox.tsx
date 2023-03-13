@@ -8,7 +8,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 (mapboxgl as any).accessToken =
   "pk.eyJ1IjoiZWxzYWJlbiIsImEiOiJjanZ4b2ZndDQwNnB5M3pyejNrZWQwaGVwIn0.T8MZoM6PJVvNkME819rAkw";
 
-function HeaderNav() {
+function MapBox({ isContact = false }) {
   const mapContainer = useRef(null);
   const map: any = useRef(null);
   const [lng, setLng] = useState(-0.11218034371890166);
@@ -35,9 +35,13 @@ function HeaderNav() {
   });
   return (
     <section>
-      <h3>Find Us</h3>
+      {
+        !isContact && (
+          <h3 className="mt-[60px] mb-[50px] text-[32px] text-[#3e3d3c] font-[100] font-robotoSans text-center">Find Us</h3>
+        )
+      }
       <div className="">
-        <div className="sidebar">
+        <div className="sidebar hidden">
           Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
         </div>
         <div ref={mapContainer} className="map-container" />
@@ -46,4 +50,4 @@ function HeaderNav() {
   );
 }
 
-export default HeaderNav;
+export default MapBox;
