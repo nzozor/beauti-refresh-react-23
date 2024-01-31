@@ -1,10 +1,17 @@
+export interface BannerInfoRaw {
+data: BannerInfo[];
+}
+
 export interface BannerInfo {
   hide: boolean;
   _id: string;
   createdAt: Date;
   updatedAt: Date;
   __v: number;
-  image: Image;
+  image: {data:  {
+    attributes:  Image ;
+  }
+  }
   imgSmall: Image;
   asterisk: string;
   title1: string;

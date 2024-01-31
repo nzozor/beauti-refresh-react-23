@@ -10,7 +10,8 @@ export interface Props {
 }
 
 const HeaderNav: React.FC<Props> = ({ bannerInfo }) => {
-  const imgSrc = "https://cms.beautiskinclinic.com";
+  const imgSrc = 'http://localhost:1339' as string;
+
   const imgStyle = {
     height: "600px",
     zIndex: "0",
@@ -29,12 +30,12 @@ const HeaderNav: React.FC<Props> = ({ bannerInfo }) => {
       </div>
       <div style={imgStyle} className="img-container">
         <Image
-          quality={100}
+          quality={70}
           className="image-next"
-          src={imgSrc + bannerInfo.image.url}
+          src={`${imgSrc}${bannerInfo.image.data.attributes.url}`}
           alt={
-            (bannerInfo.image.alternativeText &&
-              imgSrc + bannerInfo.image.alternativeText) ||
+            (bannerInfo.image.data.attributes.alternativeText &&
+              imgSrc + bannerInfo.image.data.attributes.alternativeText) ||
             bannerInfo.title2
           }
           // width={300}

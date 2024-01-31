@@ -115,6 +115,7 @@ a {
     }
 }
 
+
 .reviewSwiper .swiper-slide .slideContainer {
     opacity: 0.6;
     transition: all 0.8s ease-in-out;
@@ -533,6 +534,8 @@ div.main-menu {
             }
         }
     }
+}
 
-
+.swiper-slide {
+    height: 500px!important;
 }

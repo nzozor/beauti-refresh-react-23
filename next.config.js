@@ -11,6 +11,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "cms.beautiskinclinic.com",
       },
+      {
+        protocol: "http",
+        hostname: "localhost",
+      },
     ],
   },
   experimental: {

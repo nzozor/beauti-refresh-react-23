@@ -8,8 +8,7 @@ import ReactMarkdown from 'react-markdown'
 import React from "react";
 const host = process.env.CMS_BASE_URL as string;
 
-const TreatmentPage: NextPage<{ treatment: Treatment }> = ({ treatment }) => {
-  console.log(treatment.content)
+const TreatmentPage: NextPage<{ treatment: any }> = ({ treatment }) => {
   return (
     <div className="bg-[#c7cbd626] treatment-showcase pb-10">
       <div className="max-w-[1170px] mx-auto pt-[1rem]">
@@ -22,7 +21,7 @@ const TreatmentPage: NextPage<{ treatment: Treatment }> = ({ treatment }) => {
           </div>
         </Link>
         <div className="flex justify-between mr-6 ml-6">
-          <h1 className="ml-4 md:ml-0 mb-[25px] font-[100] text-[2rem] text-[#3e3d3c] font-robotoSans">{treatment.title}</h1>
+          <h1 className="ml-4 md:ml-0 mb-[25px] font-[100] text-[2rem] text-[#3e3d3c] font-robotoSans">{treatment.attributes.title}</h1>
           <BookButton  />
         </div>
         <img
@@ -30,7 +29,7 @@ const TreatmentPage: NextPage<{ treatment: Treatment }> = ({ treatment }) => {
           alt=""
           className="w-full"
         />
-        <ReactMarkdown className="markdown">{treatment.content}</ReactMarkdown>
+        <ReactMarkdown className="markdown">{treatment.attributes.Content}</ReactMarkdown>
       </div>
       <div className="book-treatment-fixed">
         <BookButton/>
@@ -40,16 +39,16 @@ const TreatmentPage: NextPage<{ treatment: Treatment }> = ({ treatment }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const response = await fetch(`${host}treatments`);
-  let treatments: Treatment[] = await response.json();
-  treatments = Array.isArray(treatments) ? treatments : [];
+  const response = await fetch(`${host}/api/treaments`);
+  let treatments: any = await response.json();
+  treatments = Array.isArray(treatments.data) ? treatments : [];
 
-  const paths = treatments
-    .filter((treatment) => treatment.content)
-    .map((product) => {
+  const paths = treatments.data
+    .filter((treatment: any) => treatment.attributes.Content)
+    .map((product: any) => {
       return {
         params: {
-          id: product.slug.toString(),
+          id: product.attributes.slug.toString(),
         },
       };
     });
@@ -62,9 +61,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (context: any) => {
   const id = context.params?.id;
-  const response = await fetch(`${host}treatments?slug=${id}`);
-  let treatment: Treatment[] = await response.json();
-  treatment = Array.isArray(treatment) ? treatment : [];
+  const response = await fetch(`${host}/api/treaments?filters[slug][$eq]=${id}`);
+  let treatment: any = await response.json();
+  treatment = Array.isArray(treatment.data) ? treatment.data : [];
 
   return {
     props: {

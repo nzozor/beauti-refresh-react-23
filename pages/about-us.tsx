@@ -67,10 +67,14 @@ const aboutUs: NextPage<{ copy: string }> = ({ copy }: any) => {
             imageList.map((item, index) => {
               return (
                   <SwiperSlide key={index} className="flex justify-center">
-                    <img
+                    <Image
                         alt={item.alt}
                         className="js-lazy-image"
                         src={item.imageSource}
+                        quality={70}
+                        layout="fill"
+                        objectFit="cover"
+                        objectPosition="top"
                     />
                   </SwiperSlide>
               )
@@ -83,12 +87,14 @@ const aboutUs: NextPage<{ copy: string }> = ({ copy }: any) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const response = await fetch("https://cms.beautiskinclinic.com/about-us-page");
+
+
+  const response = await fetch(`${process.env.CMS_BASE_URL}/api/about-us-page`);
 
   let copy: any = '';
   if(response.ok) {
     const aboutUsCopy: AboutUsCopy = await response.json();
-    copy = aboutUsCopy.Content;
+    copy = aboutUsCopy.data.attributes.cke;
   }
 
   return {

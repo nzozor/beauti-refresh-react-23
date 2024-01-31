@@ -9,7 +9,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import BookButton from "../../components/BookButton";
 
 const Treatments: NextPage<{
-  treatments: Treatment[];
+  treatments: any[];
   sections: any[];
   prices: any[];
 }> = ({treatments, sections, prices}) => {
@@ -20,7 +20,7 @@ const Treatments: NextPage<{
       event.preventDefault();
       event.stopPropagation();
       const rootSections = sections.filter(
-        (section) => !section.parentSection || section.parentSection.length == 0
+        (section) => !section.attributes.parentSection || section.attributes.parentsection.attributes.length == 0
       );
 
       setExpanded(
@@ -34,15 +34,15 @@ const Treatments: NextPage<{
     return prices
       .filter(
         (price: any) =>
-          price.section?.id === parentId || price.treatment?.id === parentId
+          price.attributes.section?.id === parentId || price.attributes.treatment?.id === parentId
       )
       .map((price: any) => (
-        <div key={price.id} className="treatmentsTable my-[1rem]">
+        <div key={price.attributes.id} className="treatmentsTable my-[1rem]">
           {
             slugRef && (
               <div
                 className="bg-[#c7cbd699] flex flex-col items-start justify-center md:flex-row md:justify-between md:items-center justify-between place-items-center p-[20px]">
-                <h2 className="text-[17px] text-start font-robotoSans">{price.priceTitle}</h2>
+                <h2 className="text-[17px] text-start font-robotoSans">{price.attributes.priceTitle}</h2>
                 {showcasePage && (
                   <div>
                     <Link href={`/treatments/${slugRef}`} className="">
@@ -65,24 +65,24 @@ const Treatments: NextPage<{
               <thead className="mb-[1rem]">
               <div className="h-[10px] bg-transparent"></div>
               <tr className="my-2">
-                {!price.hideColumnTitles &&
-                  price.colTitles.map((colTitle: any) => (
+                {!price.attributes.hideColumnTitles &&
+                  price.attributes.Column.map((colTitle: any) => (
                     <th key={colTitle.id}
                         className="p-2 pl-[20px] text-start capitalize bg-[#c7cbd62e] min-w-[120px] font-nunitoSans">
-                      {!colTitle.hide && colTitle.title}
+                      {!colTitle.hideColumnTitle && colTitle.title}
                     </th>
                   ))}
               </tr>
               </thead>
               <tbody className="w-full">
-              {price.Rows.map((row: any) => (
-                <tr key={row.id}>
-                  {row.singleRow.map((col: any) => (
-                    <td key={col.id}
-                        className="p-2 w-[fit-content] pl-[20px] min-w-[120px] font-nunitoSans">{col.value}</td>
-                  ))}
-                </tr>
-              ))}
+              {/*{price.attributes?.Rows.map((row: any) => (*/}
+              {/*  <tr key={row.id}>*/}
+              {/*    {row.singleRow.map((col: any) => (*/}
+              {/*      <td key={col.id}*/}
+              {/*          className="p-2 w-[fit-content] pl-[20px] min-w-[120px] font-nunitoSans">{col.value}</td>*/}
+              {/*    ))}*/}
+              {/*  </tr>*/}
+              {/*))}*/}
               </tbody>
             </table>
           </div>
@@ -91,23 +91,23 @@ const Treatments: NextPage<{
   };
   const displayTreatment = (sectionId: string) => {
     return treatments
-      .filter((treatment: any) => treatment.section?.id === sectionId)
+      .filter((treatment: any) => treatment.attributes.section?.id === sectionId)
       .map((treatment) => (
         <div key={treatment.id} className="">
-          <div>{displayPrices(treatment.id, treatment.slug, treatment.showcasePage)}</div>
+          <div>{displayPrices(treatment.id, treatment.attributes.slug, treatment.attributes.showcasePage)}</div>
         </div>
       ));
   };
   const displaySectionChildren = (sectionToDisplay: any) => {
     return sections
       .filter(
-        (section: any) => section.parentSection?.id === sectionToDisplay?.id
+        (section: any) => section.attributes.parentSection?.id === sectionToDisplay?.id
       )
       .map((section: any, index: number) => (
         <Accordion
-          key={section.id}
-          expanded={expanded.includes(section.id)}
-          onChange={handleChange(section.id)}
+          key={section.attributes.id}
+          expanded={expanded.includes(section.attributes.id)}
+          onChange={handleChange(section.attributes.id)}
           className="treatmentBackground cursor-pointer"
         >
           <AccordionSummary
@@ -118,15 +118,15 @@ const Treatments: NextPage<{
           >
             <h2
               className="font-[100] text-[22px] text-[#0009] font-robotoSans text-start leading-[30px] treatmentBackground headerTitle">
-              {section.sectionName}
+              {section.attributes.sectionName}
             </h2>
             <span
               className="mat-expansion-indicator ng-tns-c39-2 ng-trigger ng-trigger-indicatorRotate ng-star-inserted"
             ></span>
           </AccordionSummary>
           <AccordionDetails className="p-0 m-0">
-            {displaySectionChildren(section)} {displayTreatment(section.id)}
-            {displayPrices(section.id)}
+            {displaySectionChildren(section)} {displayTreatment(section.attributes.id)}
+            {displayPrices(section.attributes.id)}
           </AccordionDetails>
         </Accordion>
       ));
@@ -139,13 +139,13 @@ const Treatments: NextPage<{
         {sections
           .filter(
             (section) =>
-              !section.parentSection || section.parentSection.length == 0
+              !section.attributes.parentSection || section.attributes.parentsection.attributes.length == 0
           )
           .map((section) => (
             <Accordion
-              key={section.id}
-              expanded={expanded.includes(section.id)}
-              onChange={handleChange(section.id)}
+              key={section.attributes.id}
+              expanded={expanded.includes(section.attributes.id)}
+              onChange={handleChange(section.attributes.id)}
               className="treatmentBackground cursor-pointer"
             >
               <div className="flex justify-between place-items-center acc-main ">
@@ -157,7 +157,7 @@ const Treatments: NextPage<{
                 >
                   <h2
                     className="pl-2 md:pl-0 font-[100] text-[22px] text-[#0009] font-robotoSans text-start leading-[30px] treatmentBackground headerTitle">
-                    {section.sectionName}
+                    {section.attributes.sectionName}
                   </h2>
                   <span
                     className="mat-expansion-indicator ng-tns-c39-2 ng-trigger ng-trigger-indicatorRotate ng-star-inserted"
@@ -169,9 +169,9 @@ const Treatments: NextPage<{
                 </div>
               </div>
               <AccordionDetails
-                className={section.sectionName === 'Waxing' ? 'p-0 m-0 grid md:grid-cols-2' : 'p-0 m-0'}>
-                {displaySectionChildren(section)} {displayTreatment(section.id)}
-                {displayPrices(section.id)}
+                className={section.attributes.sectionName === 'Waxing' ? 'p-0 m-0 grid md:grid-cols-2' : 'p-0 m-0'}>
+                {displaySectionChildren(section)} {displayTreatment(section.attributes.id)}
+                {displayPrices(section.attributes.id)}
               </AccordionDetails>
             </Accordion>
           ))}
@@ -185,28 +185,28 @@ const Treatments: NextPage<{
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const host = process.env.CMS_BASE_URL as string;
-  const response = await fetch(`${host}treatments`).catch((error) => {
+  const response = await fetch(`${host}/api/treaments?populate=*`).catch((error) => {
     console.warn("There was an error!", error);
     return [];
   });
 
-  const sectionResponse = await fetch(`${host}sections`).catch((error) => {
+  const sectionResponse = await fetch(`${host}/api/sections?populate=*`).catch((error) => {
     console.warn("There was an error!", error);
     return [];
   });
 
-  const pricesResponse = await fetch(`${host}prices`).catch((error) => {
+  const pricesResponse = await fetch(`${host}/api/prices?populate=*`).catch((error) => {
     console.warn("There was an error!", error);
     return [];
   });
   // Parse the JSON
   let treatments = await (response as Response)?.json();
-  treatments = Array.isArray(treatments) ? treatments : [];
+  treatments = Array.isArray(treatments.data) ? treatments.data : [];
   let sections = await (sectionResponse as Response)?.json();
-  sections = Array.isArray(sections) ? sections : [];
+  sections = Array.isArray(sections.data) ? sections.data : [];
 
   let prices = await (pricesResponse as Response)?.json();
-  prices = Array.isArray(prices) ? prices : [];
+  prices = Array.isArray(prices.data) ? prices.data : [];
 
   // Finally we return the result
   // inside props as allPokemons

@@ -30,9 +30,9 @@ const HomePageSlider: React.FC<Props> = ({ banners }) => {
         speed={1500}
         modules={[Pagination, EffectFade]}
       >
-        {banners.map((banner: BannerInfo) => (
+        {banners.map((banner: any) => (
           <SwiperSlide key={banner.id.toString()} className="w-full">
-            <Banner bannerInfo={banner} />
+            <Banner bannerInfo={banner.attributes} />
           </SwiperSlide>
         ))}
       </Swiper>

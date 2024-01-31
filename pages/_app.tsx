@@ -1,5 +1,5 @@
 import "../styles/globals.scss";
-import type { AppProps } from "next/app";
+import type {AppProps} from "next/app";
 import HeaderNav from "../components/HeaderNav";
 import Footer from "../components/Footer";
 import "@fontsource/roboto/100.css";
@@ -11,9 +11,11 @@ import "@fontsource/nunito-sans/300.css";
 import "@fontsource/nunito-sans/600.css";
 
 import Head from "next/head";
-import { NextPage } from "next";
+import {NextPage} from "next";
+import {DevSupport} from "@react-buddy/ide-toolbox-next";
+import {ComponentPreviews, useInitial} from "../dev";
 
-const MyApp: NextPage<AppProps> = ({ Component, pageProps }: AppProps) => {
+const MyApp: NextPage<AppProps> = ({Component, pageProps}: AppProps) => {
   return (
     <>
       <Head>
@@ -25,12 +27,16 @@ const MyApp: NextPage<AppProps> = ({ Component, pageProps }: AppProps) => {
           content="Professional skin and waxing services only 5 mins walk from Oval Station.
   Founded by Aesthetician Cinzia Campigotto who has over 20 years of experience."
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico"/>
       </Head>
 
-      <HeaderNav />
-      <Component {...pageProps} />
-      <Footer />
+      <HeaderNav/>
+      <DevSupport ComponentPreviews={ComponentPreviews}
+                  useInitialHook={useInitial}
+      >
+        <Component {...pageProps} />
+      </DevSupport>
+      <Footer/>
 
     </>
   );
