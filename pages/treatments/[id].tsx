@@ -41,17 +41,19 @@ const TreatmentPage: NextPage<{ treatment: any }> = ({ treatment }) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const response = await fetch(`${host}/api/treaments`);
   let treatments: any = await response.json();
-  treatments = Array.isArray(treatments.data) ? treatments : [];
-
-  const paths = treatments.data
-    .filter((treatment: any) => treatment.attributes.Content)
-    .map((product: any) => {
-      return {
-        params: {
-          id: product.attributes.slug.toString(),
-        },
-      };
-    });
+  // treatments = Array.isArray(treatments.data) ? treatments : [];
+  let paths;
+  if (treatments.data) {
+    paths = treatments.data
+      .filter((treatment: any) => treatment.attributes.Content)
+      .map((product: any) => {
+        return {
+          params: {
+            id: product.attributes.slug.toString(),
+          },
+        };
+      });
+  }
 
   return {
     paths,
