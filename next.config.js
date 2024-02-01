@@ -12,6 +12,10 @@ const nextConfig = {
         hostname: "cms.beautiskinclinic.com",
       },
       {
+        protocol: "https",
+        hostname: "cms.tracksdigital.com",
+      },
+      {
         protocol: "http",
         hostname: "localhost",
       },

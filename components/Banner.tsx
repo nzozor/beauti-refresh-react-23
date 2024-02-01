@@ -10,7 +10,7 @@ export interface Props {
 }
 
 const HeaderNav: React.FC<Props> = ({ bannerInfo }) => {
-  const imgSrc = `${process.env.CMS_BASE_URL}/` as string;
+  const imgSrc = 'https://cms.tracksdigital.com' as string;
 
   const imgStyle = {
     height: "600px",
