@@ -53,6 +53,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
           },
         };
       });
+  } else {
+    paths = ['null','empty']
   }
 
   return {
