@@ -10,7 +10,7 @@ export interface Props {
 }
 
 const HeaderNav: React.FC<Props> = ({ bannerInfo }) => {
-  const imgSrc = 'http://localhost:1339' as string;
+  const imgSrc = `${process.env.CMS_BASE_URL}/` as string;
 
   const imgStyle = {
     height: "600px",
