@@ -98,10 +98,10 @@ const Treatments: NextPage<{
         </div>
       ));
   };
-  const displaySectionChildren = (sectionToDisplay: any) => {
+  const displaySectionChildren = (parentSection: any) => {
     return sections
       .filter(
-        (section: any) => section.attributes.parentSection?.id === sectionToDisplay?.id
+        (section: any) => section.attributes.section.data?.id === parentSection?.id
       )
       .map((section: any, index: number) => (
         <Accordion
@@ -139,8 +139,9 @@ const Treatments: NextPage<{
         {sections
           .filter(
             (section) =>
-              !section.attributes.parentSection || section.attributes.parentsection.attributes.length == 0
+              !section.attributes.section.data
           )
+          .sort((a,b) => a.attributes.rank - b.attributes.rank)
           .map((section) => (
             <Accordion
               key={section.attributes.id}
