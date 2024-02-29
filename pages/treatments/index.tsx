@@ -1,7 +1,5 @@
 import React from "react";
 import type {GetStaticProps, NextPage} from "next";
-import Link from "next/link";
-import {Treatment} from "../../types/treatment";
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -34,57 +32,28 @@ const Treatments: NextPage<{
     return prices
       .filter(
         (price: any) =>
-          price.attributes.section?.id === parentId || price.attributes.treatment?.id === parentId
+          price.id === parentId
       )
       .map((price: any) => (
-        <div key={price.attributes.id} className="treatmentsTable my-[1rem]">
-          {
-            slugRef && (
-              <div
-                className="bg-[#c7cbd699] flex flex-col items-start justify-center md:flex-row md:justify-between md:items-center justify-between place-items-center p-[20px]">
-                <h2 className="text-[17px] text-start font-robotoSans">{price.attributes.priceTitle}</h2>
-                {showcasePage && (
-                  <div>
-                    <Link href={`/treatments/${slugRef}`} className="">
-                      <button
-                        className="hidden md:block w-[146px] h-[41px] border-[1px] border-[#3E3D3C] bg-transparent text-[#3e3d3c]">Read
-                        more
-                      </button>
-                    </Link>
-                    <Link href={`/treatments/${slugRef}`}>
-                      <span className="block md:hidden underline">Read more</span>
-                    </Link>
-                  </div>
-                )}
-                {!showcasePage && <BookButton/>}
-              </div>
-            )
-          }
+        <div key={price.id} className="treatmentsTable my-[1rem]">
+
           <div className="price-overflow">
             <table className="w-full text-start">
               <thead className="mb-[1rem]">
               <div className="h-[10px] bg-transparent"></div>
               <tr className="my-2">
                 {!price.attributes.hideColumnTitles &&
-                  price.attributes.Column.map((colTitle: any) => (
-                    <th key={colTitle.id}
+                  price.attributes.Column.map((column: any,index: number) => (
+                    <th key={index}
                         className="p-2 pl-[20px] text-start capitalize bg-[#c7cbd62e] min-w-[120px] font-nunitoSans">
-                      {!colTitle.hideColumnTitle && colTitle.title}
+                      {!column?.hideColumnTitle && column.title}
                     </th>
                   ))}
               </tr>
               </thead>
-              <tbody className="w-full">
-              {/*{price.attributes?.Rows.map((row: any) => (*/}
-              {/*  <tr key={row.id}>*/}
-              {/*    {row.singleRow.map((col: any) => (*/}
-              {/*      <td key={col.id}*/}
-              {/*          className="p-2 w-[fit-content] pl-[20px] min-w-[120px] font-nunitoSans">{col.value}</td>*/}
-              {/*    ))}*/}
-              {/*  </tr>*/}
-              {/*))}*/}
-              </tbody>
+
             </table>
+
           </div>
         </div>
       ));
@@ -94,7 +63,7 @@ const Treatments: NextPage<{
       .filter((treatment: any) => treatment.attributes.section?.id === sectionId)
       .map((treatment) => (
         <div key={treatment.id} className="">
-          <div>{displayPrices(treatment.id, treatment.attributes.slug, treatment.attributes.showcasePage)}</div>
+          {/*<div>{displayPrices(treatment.id, treatment.attributes.slug, treatment.attributes.showcasePage)}</div>*/}
         </div>
       ));
   };
@@ -125,8 +94,9 @@ const Treatments: NextPage<{
             ></span>
           </AccordionSummary>
           <AccordionDetails className="p-0 m-0">
-            {displaySectionChildren(section)} {displayTreatment(section.attributes.id)}
-            {displayPrices(section.attributes.id)}
+            {/*{displaySectionChildren(section)}*/}
+            {/*{displayTreatment(section.attributes.id)}*/}
+            {/*{displayPrices(section.id)}*/}
           </AccordionDetails>
         </Accordion>
       ));
@@ -139,7 +109,7 @@ const Treatments: NextPage<{
         {sections
           .filter(
             (section) =>
-              !section.attributes.section.data
+              !section.attributes.section.data // parent sections First
           )
           .sort((a,b) => a.attributes.rank - b.attributes.rank)
           .map((section) => (
@@ -170,9 +140,10 @@ const Treatments: NextPage<{
                 </div>
               </div>
               <AccordionDetails
-                className={section.attributes.sectionName === 'Waxing' ? 'p-0 m-0 grid md:grid-cols-2' : 'p-0 m-0'}>
-                {displaySectionChildren(section)} {displayTreatment(section.attributes.id)}
-                {displayPrices(section.attributes.id)}
+                className="accordion-details">
+                {/*{displaySectionChildren(section)}*/}
+                {/*{displayTreatment(section.attributes.id)}*/}
+                {displayPrices(section.id)}
               </AccordionDetails>
             </Accordion>
           ))}
@@ -196,7 +167,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     return [];
   });
 
-  const pricesResponse = await fetch(`${host}/api/prices?populate=*`).catch((error) => {
+  const pricesResponse = await fetch(`${host}/api/prices?populate=*,Column.row`).catch((error) => {
     console.warn("There was an error!", error);
     return [];
   });
